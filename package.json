@@ -25,5 +25,6 @@
     "seamless-immutable"
   ],
   "author": "Joel George V",
+  "homepage": "https://joelgeorgev.github.io/react-checkbox-tree",
   "license": "MIT"
 }
