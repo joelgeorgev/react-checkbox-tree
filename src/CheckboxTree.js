@@ -4,6 +4,7 @@ import Checkbox from './Checkbox';
 import './CheckboxTree.css';
 
 class CheckboxTree extends Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -53,7 +54,8 @@ class CheckboxTree extends Component {
       ])
     }
   }
-  toggleCheck(e) {
+
+  toggleCheckbox(e) {
 
     // Get key and checkbox status from <li> element
     let key = e.target.getAttribute('data-attr');
@@ -93,7 +95,7 @@ class CheckboxTree extends Component {
 
   renderCheckboxTree() {
     return this.state.tree.map((node) => {
-      return <Checkbox key={node.key} config={node} handleChange={this.toggleCheck.bind(this)} />;
+      return <Checkbox key={node.key} config={node} handleToggle={this.toggleCheckbox.bind(this)} />;
     })
   }
 
