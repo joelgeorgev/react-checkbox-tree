@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 
 class Checkbox extends Component {
     render() {
-        if (this.props.config.childKeys && this.props.config.childKeys.length) {
-            let nodeList = this.props.config.childKeys.map((node) => {
-                return <Checkbox key={node.key} config={node} handleToggle={this.props.handleToggle} />;
+        if (this.props.node.childKeys && this.props.node.childKeys.length) {
+            let nodeList = this.props.node.childKeys.map((childNode) => {
+                return <Checkbox key={childNode.key} node={childNode} handleToggle={this.props.handleToggle} />;
             })
             return (
                 <li>
-                    <input type='checkbox' data-attr={this.props.config.key} checked={this.props.config.checked}
+                    <input type='checkbox' data-attr={this.props.node.key} checked={this.props.node.checked}
                         onChange={this.props.handleToggle} />
-                    <span>{this.props.config.key}</span>
+                    <span>{this.props.node.key}</span>
                     <ul>
                         {nodeList}
                     </ul>
@@ -19,9 +19,9 @@ class Checkbox extends Component {
         } else {
             return (
                 <li>
-                    <input type='checkbox' data-attr={this.props.config.key} checked={this.props.config.checked}
+                    <input type='checkbox' data-attr={this.props.node.key} checked={this.props.node.checked}
                         onChange={this.props.handleToggle} />
-                    <span>{this.props.config.key}</span>
+                    <span>{this.props.node.key}</span>
                 </li>
             );
         }
