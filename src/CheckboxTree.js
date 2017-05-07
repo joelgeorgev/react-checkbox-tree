@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Immutable from 'seamless-immutable';
 import Checkbox from './Checkbox';
+import treeData from '../data/tree.json';
 import './CheckboxTree.css';
 
 class CheckboxTree extends Component {
@@ -8,50 +9,7 @@ class CheckboxTree extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      tree: Immutable([
-        {
-          key: 'Name',
-          checked: false
-        },
-        {
-          key: 'Age',
-          checked: false
-        },
-        {
-          key: 'Contact',
-          checked: false,
-          childKeys: [{
-            key: 'Telephone',
-            checked: false,
-            childKeys: [{
-              key: 'Home',
-              checked: false
-            }, {
-              key: 'Work',
-              checked: false
-            }]
-          }, {
-            key: 'Mobile',
-            checked: false
-          }]
-        },
-        {
-          key: 'Address',
-          checked: false,
-          childKeys: [{
-            key: 'House',
-            checked: false
-          },
-          {
-            key: 'Road',
-            checked: false
-          },
-          {
-            key: 'Zip Code',
-            checked: false
-          }]
-        }
-      ])
+      tree: Immutable(treeData)
     }
   }
 
