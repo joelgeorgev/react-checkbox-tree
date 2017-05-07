@@ -55,11 +55,11 @@ class CheckboxTree extends Component {
     }
   }
 
-  toggleCheckbox(e) {
+  toggleCheckbox(targetNode) {
 
-    // Get key and checkbox status from <li> element
-    let key = e.target.getAttribute('data-attr');
-    let checkboxStatus = e.target.checked;
+    // Get key and checkbox status from targetNode object
+    let key = targetNode.key;
+    let checkboxStatus = !targetNode.checked;
 
     // Create a mutable deep clone of the component state
     let stateCopy = Immutable.asMutable(this.state.tree, { deep: true });
