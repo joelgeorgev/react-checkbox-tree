@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CheckboxTree from './CheckboxTree';
+import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <CheckboxTree />,
+  <App />,
   document.getElementById('root')
 );

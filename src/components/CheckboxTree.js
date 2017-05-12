@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Immutable from 'seamless-immutable';
 import Checkbox from './Checkbox';
-import treeData from '../data/tree.json';
-import './CheckboxTree.css';
+import treeData from '../../data/tree.json';
 
 class CheckboxTree extends Component {
 
