@@ -7,3 +7,6 @@ git clone https://github.com/joelgeorgev/react-checkbox-tree.git
 cd react-checkbox-tree
 npm install && npm start
 ```
+
+## License
+MIT
