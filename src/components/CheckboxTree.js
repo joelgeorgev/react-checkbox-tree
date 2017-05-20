@@ -21,14 +21,14 @@ class CheckboxTree extends Component {
     // Create a mutable deep clone of the component state
     let stateCopy = Immutable.asMutable(this.state.tree, { deep: true });
 
-    let toggleChildNodes = ((node) => {
+    let toggleChildNodes = (node => {
       node.checked = checkboxStatus;
       if (node.childKeys && node.childKeys.length) {
         node.childKeys.forEach(toggleChildNodes);
       }
     });
 
-    let traverseNodes = ((node) => {
+    let traverseNodes = (node => {
       if (node.key === key) {
         node.checked = checkboxStatus;
         if (node.childKeys && node.childKeys.length) {
@@ -51,7 +51,7 @@ class CheckboxTree extends Component {
   }
 
   renderCheckboxTree() {
-    return this.state.tree.map((node) => {
+    return this.state.tree.map(node => {
       return <Checkbox key={node.key} node={node} handleToggle={this.toggleCheckbox.bind(this)} />;
     })
   }

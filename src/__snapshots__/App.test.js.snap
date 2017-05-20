@@ -1,0 +1,140 @@
+exports[`test snapshot test 1`] = `
+<div
+  className="content">
+  <div>
+    <h3>
+      React Checkbox Tree
+    </h3>
+    <p>
+      A react app showcasing a simple checkbox tree component. This project was created using 
+      <a
+        href="https://github.com/facebookincubator/create-react-app">
+        create-react-app
+      </a>
+      .
+    </p>
+    <p>
+      Uses 
+      <a
+        href="https://github.com/rtfeldman/seamless-immutable">
+        seamless-immutable
+      </a>
+       as the data structure for the component state. Check out the source 
+      <a
+        href="https://github.com/joelgeorgev/react-checkbox-tree">
+        here
+      </a>
+      .
+    </p>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox" />
+        <span>
+          Name
+        </span>
+      </li>
+      <li>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox" />
+        <span>
+          Age
+        </span>
+      </li>
+      <li>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox" />
+        <span>
+          Contact
+        </span>
+        <ul>
+          <li>
+            <input
+              checked={false}
+              onChange={[Function]}
+              type="checkbox" />
+            <span>
+              Telephone
+            </span>
+            <ul>
+              <li>
+                <input
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox" />
+                <span>
+                  Home
+                </span>
+              </li>
+              <li>
+                <input
+                  checked={false}
+                  onChange={[Function]}
+                  type="checkbox" />
+                <span>
+                  Work
+                </span>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <input
+              checked={false}
+              onChange={[Function]}
+              type="checkbox" />
+            <span>
+              Mobile
+            </span>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <input
+          checked={false}
+          onChange={[Function]}
+          type="checkbox" />
+        <span>
+          Address
+        </span>
+        <ul>
+          <li>
+            <input
+              checked={false}
+              onChange={[Function]}
+              type="checkbox" />
+            <span>
+              House
+            </span>
+          </li>
+          <li>
+            <input
+              checked={false}
+              onChange={[Function]}
+              type="checkbox" />
+            <span>
+              Road
+            </span>
+          </li>
+          <li>
+            <input
+              checked={false}
+              onChange={[Function]}
+              type="checkbox" />
+            <span>
+              Zip Code
+            </span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

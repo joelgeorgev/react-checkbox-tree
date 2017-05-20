@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Checkbox extends Component {
 	render() {
 		if (this.props.node.childKeys && this.props.node.childKeys.length) {
-			let nodeList = this.props.node.childKeys.map((childNode) => {
+			let nodeList = this.props.node.childKeys.map(childNode => {
 				return <Checkbox key={childNode.key} node={childNode} handleToggle={this.props.handleToggle} />;
 			})
 			return (
