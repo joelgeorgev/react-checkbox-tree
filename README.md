@@ -1,4 +1,7 @@
 # React Checkbox Tree
+
+[![Build Status](https://travis-ci.org/joelgeorgev/react-checkbox-tree.svg?branch=master)](https://travis-ci.org/joelgeorgev/react-checkbox-tree)
+
 > A react app showcasing a simple checkbox tree component. This project was created using [create-react-app](https://github.com/facebookincubator/create-react-app). Uses [seamless-immutable](https://github.com/rtfeldman/seamless-immutable) as the data structure for the component state. Check out the app [here](https://joelgeorgev.github.io/react-checkbox-tree).
 
 ## To run the app
