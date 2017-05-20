@@ -8,6 +8,7 @@
     "seamless-immutable": "^7.1.2"
   },
   "devDependencies": {
+    "coveralls": "^2.13.1",
     "gh-pages": "^0.12.0",
     "react-scripts": "0.9.5",
     "react-test-renderer": "^15.5.4"
@@ -19,7 +20,8 @@
     "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": "https://github.com/joelgeorgev/react-checkbox-tree",
   "keywords": [
