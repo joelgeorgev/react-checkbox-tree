@@ -25,7 +25,6 @@ class Checkbox extends Component {
         </li>
       );
     }
-
   }
 }
 
