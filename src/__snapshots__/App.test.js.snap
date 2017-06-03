@@ -13,10 +13,7 @@ exports[`test snapshot test 1`] = `
           href="https://github.com/facebookincubator/create-react-app">
           create-react-app
         </a>
-        .
-      </p>
-      <p>
-        Uses 
+        . Uses 
         <a
           href="https://github.com/rtfeldman/seamless-immutable">
           seamless-immutable
