@@ -59,7 +59,7 @@ class CheckboxTree extends Component {
   render() {
     return (
       <div>
-        <ul>
+        <ul className='list'>
           {this.renderCheckboxTree()}
         </ul>
       </div>

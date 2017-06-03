@@ -8,10 +8,10 @@ class Checkbox extends Component {
       })
       return (
         <li>
-          <input type='checkbox' checked={this.props.node.checked}
+          <input type='checkbox' checked={this.props.node.checked} className='pointer'
             onChange={this.props.handleToggle.bind(this, this.props.node)} />
-          <span>{this.props.node.key}</span>
-          <ul>
+          <label className='ml2'>{this.props.node.key}</label>
+          <ul className='list'>
             {nodeList}
           </ul>
         </li>
@@ -19,9 +19,9 @@ class Checkbox extends Component {
     } else {
       return (
         <li>
-          <input type='checkbox' checked={this.props.node.checked}
+          <input type='checkbox' checked={this.props.node.checked} className='pointer'
             onChange={this.props.handleToggle.bind(this, this.props.node)} />
-          <span>{this.props.node.key}</span>
+          <label className='ml2'>{this.props.node.key}</label>
         </li>
       );
     }

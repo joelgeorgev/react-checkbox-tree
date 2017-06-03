@@ -1,140 +1,173 @@
 exports[`test snapshot test 1`] = `
 <div
-  className="content">
-  <div>
-    <h3>
-      React Checkbox Tree
-    </h3>
-    <p>
-      A react app showcasing a simple checkbox tree component. This project was created using 
-      <a
-        href="https://github.com/facebookincubator/create-react-app">
-        create-react-app
-      </a>
-      .
-    </p>
-    <p>
-      Uses 
-      <a
-        href="https://github.com/rtfeldman/seamless-immutable">
-        seamless-immutable
-      </a>
-       as the data structure for the component state. Check out the source 
-      <a
-        href="https://github.com/joelgeorgev/react-checkbox-tree">
-        here
-      </a>
-      .
-    </p>
+  className="flex flex-column w-80 mw8 vh-100 center pv4">
+  <div
+    className="flex flex-auto flex-column">
+    <div>
+      <h3>
+        React Checkbox Tree
+      </h3>
+      <p>
+        A react app showcasing a simple checkbox tree component. This project was created using 
+        <a
+          href="https://github.com/facebookincubator/create-react-app">
+          create-react-app
+        </a>
+        .
+      </p>
+      <p>
+        Uses 
+        <a
+          href="https://github.com/rtfeldman/seamless-immutable">
+          seamless-immutable
+        </a>
+         as the data structure for the component state.
+      </p>
+    </div>
+    <div>
+      <ul
+        className="list">
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox" />
+          <label
+            className="ml2">
+            Name
+          </label>
+        </li>
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox" />
+          <label
+            className="ml2">
+            Age
+          </label>
+        </li>
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox" />
+          <label
+            className="ml2">
+            Contact
+          </label>
+          <ul
+            className="list">
+            <li>
+              <input
+                checked={false}
+                className="pointer"
+                onChange={[Function]}
+                type="checkbox" />
+              <label
+                className="ml2">
+                Telephone
+              </label>
+              <ul
+                className="list">
+                <li>
+                  <input
+                    checked={false}
+                    className="pointer"
+                    onChange={[Function]}
+                    type="checkbox" />
+                  <label
+                    className="ml2">
+                    Home
+                  </label>
+                </li>
+                <li>
+                  <input
+                    checked={false}
+                    className="pointer"
+                    onChange={[Function]}
+                    type="checkbox" />
+                  <label
+                    className="ml2">
+                    Work
+                  </label>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <input
+                checked={false}
+                className="pointer"
+                onChange={[Function]}
+                type="checkbox" />
+              <label
+                className="ml2">
+                Mobile
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox" />
+          <label
+            className="ml2">
+            Address
+          </label>
+          <ul
+            className="list">
+            <li>
+              <input
+                checked={false}
+                className="pointer"
+                onChange={[Function]}
+                type="checkbox" />
+              <label
+                className="ml2">
+                House
+              </label>
+            </li>
+            <li>
+              <input
+                checked={false}
+                className="pointer"
+                onChange={[Function]}
+                type="checkbox" />
+              <label
+                className="ml2">
+                Road
+              </label>
+            </li>
+            <li>
+              <input
+                checked={false}
+                className="pointer"
+                onChange={[Function]}
+                type="checkbox" />
+              <label
+                className="ml2">
+                Zip Code
+              </label>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div>
-    <ul>
-      <li>
-        <input
-          checked={false}
-          onChange={[Function]}
-          type="checkbox" />
-        <span>
-          Name
-        </span>
-      </li>
-      <li>
-        <input
-          checked={false}
-          onChange={[Function]}
-          type="checkbox" />
-        <span>
-          Age
-        </span>
-      </li>
-      <li>
-        <input
-          checked={false}
-          onChange={[Function]}
-          type="checkbox" />
-        <span>
-          Contact
-        </span>
-        <ul>
-          <li>
-            <input
-              checked={false}
-              onChange={[Function]}
-              type="checkbox" />
-            <span>
-              Telephone
-            </span>
-            <ul>
-              <li>
-                <input
-                  checked={false}
-                  onChange={[Function]}
-                  type="checkbox" />
-                <span>
-                  Home
-                </span>
-              </li>
-              <li>
-                <input
-                  checked={false}
-                  onChange={[Function]}
-                  type="checkbox" />
-                <span>
-                  Work
-                </span>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <input
-              checked={false}
-              onChange={[Function]}
-              type="checkbox" />
-            <span>
-              Mobile
-            </span>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <input
-          checked={false}
-          onChange={[Function]}
-          type="checkbox" />
-        <span>
-          Address
-        </span>
-        <ul>
-          <li>
-            <input
-              checked={false}
-              onChange={[Function]}
-              type="checkbox" />
-            <span>
-              House
-            </span>
-          </li>
-          <li>
-            <input
-              checked={false}
-              onChange={[Function]}
-              type="checkbox" />
-            <span>
-              Road
-            </span>
-          </li>
-          <li>
-            <input
-              checked={false}
-              onChange={[Function]}
-              type="checkbox" />
-            <span>
-              Zip Code
-            </span>
-          </li>
-        </ul>
-      </li>
-    </ul>
+  <div
+    className="self-center">
+    <a
+      href="https://github.com/joelgeorgev/react-checkbox-tree">
+      <img
+        alt="GitHub"
+        src="github.svg" />
+    </a>
   </div>
 </div>
 `;
