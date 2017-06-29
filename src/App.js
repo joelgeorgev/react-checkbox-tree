@@ -4,7 +4,7 @@ import CheckboxTree from './components/CheckboxTree';
 import github from './assets/github.svg';
 import 'tachyons/css/tachyons.min.css';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <div className='flex flex-column w-80 mw8 vh-100 center pv4'>
@@ -21,5 +21,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

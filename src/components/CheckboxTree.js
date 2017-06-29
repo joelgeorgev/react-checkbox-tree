@@ -3,7 +3,7 @@ import Immutable from 'seamless-immutable';
 import Checkbox from './Checkbox';
 import treeData from '../../data/tree.json';
 
-class CheckboxTree extends Component {
+export default class CheckboxTree extends Component {
 
   constructor(props) {
     super(props)
@@ -66,5 +66,3 @@ class CheckboxTree extends Component {
     );
   }
 }
-
-export default CheckboxTree;

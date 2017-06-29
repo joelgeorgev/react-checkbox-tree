@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Checkbox extends Component {
+export default class Checkbox extends Component {
   render() {
     if (this.props.node.childKeys && this.props.node.childKeys.length) {
       let nodeList = this.props.node.childKeys.map(childNode => {
@@ -27,5 +27,3 @@ class Checkbox extends Component {
     }
   }
 }
-
-export default Checkbox;
