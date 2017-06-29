@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Immutable from 'seamless-immutable';
-import { Checkbox } from './';
+import { Checkbox } from '.';
 import treeData from '../../data/tree.json';
 
 export class CheckboxTree extends Component {
