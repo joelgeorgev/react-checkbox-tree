@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Intro from './components/Intro';
-import CheckboxTree from './components/CheckboxTree';
+import { Intro, CheckboxTree } from './components';
 import github from './assets/github.svg';
 import 'tachyons/css/tachyons.min.css';
 
-export default class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className='flex flex-column w-80 mw8 vh-100 center pv4'>
