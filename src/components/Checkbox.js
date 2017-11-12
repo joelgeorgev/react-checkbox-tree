@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class Checkbox extends Component {
+export class Checkbox extends React.PureComponent {
 
   handleToggle = () => {
     this.props.handleToggle(this.props.node);

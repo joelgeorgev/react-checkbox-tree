@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class Intro extends Component {
+export class Intro extends React.PureComponent {
   render() {
     return (
       <div>
