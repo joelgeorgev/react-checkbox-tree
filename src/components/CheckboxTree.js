@@ -12,7 +12,7 @@ export class CheckboxTree extends Component {
     }
   }
 
-  toggleCheckbox(targetNode) {
+  toggleCheckbox = (targetNode) => {
 
     // Get key and checkbox status from targetNode object
     let key = targetNode.key;
@@ -52,7 +52,7 @@ export class CheckboxTree extends Component {
 
   renderCheckboxTree() {
     return this.state.tree.map(node => {
-      return <Checkbox key={node.key} node={node} handleToggle={this.toggleCheckbox.bind(this)} />;
+      return <Checkbox key={node.key} node={node} handleToggle={this.toggleCheckbox} />;
     })
   }
 

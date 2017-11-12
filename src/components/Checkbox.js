@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 export class Checkbox extends Component {
+
+  handleToggle = () => {
+    this.props.handleToggle(this.props.node);
+  }
+
   render() {
     if (this.props.node.childKeys && this.props.node.childKeys.length) {
       let nodeList = this.props.node.childKeys.map(childNode => {
@@ -9,7 +14,7 @@ export class Checkbox extends Component {
       return (
         <li>
           <input type='checkbox' checked={this.props.node.checked} className='pointer'
-            onChange={this.props.handleToggle.bind(this, this.props.node)} />
+            onChange={this.handleToggle} />
           <label className='ml2'>{this.props.node.key}</label>
           <ul className='list'>
             {nodeList}
@@ -20,7 +25,7 @@ export class Checkbox extends Component {
       return (
         <li>
           <input type='checkbox' checked={this.props.node.checked} className='pointer'
-            onChange={this.props.handleToggle.bind(this, this.props.node)} />
+            onChange={this.handleToggle} />
           <label className='ml2'>{this.props.node.key}</label>
         </li>
       );
