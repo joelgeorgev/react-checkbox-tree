@@ -1,8 +1,12 @@
-exports[`test snapshot test 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test 1`] = `
 <div
-  className="flex flex-column w-80 mw8 vh-100 center pv4">
+  className="flex flex-column w-80 mw8 vh-100 center pv4"
+>
   <div
-    className="flex flex-auto flex-column">
+    className="flex flex-auto flex-column"
+  >
     <div>
       <h3>
         React Checkbox Tree
@@ -10,12 +14,14 @@ exports[`test snapshot test 1`] = `
       <p>
         A react app showcasing a simple checkbox tree component. This project was created using 
         <a
-          href="https://github.com/facebookincubator/create-react-app">
+          href="https://github.com/facebookincubator/create-react-app"
+        >
           create-react-app
         </a>
         . Uses 
         <a
-          href="https://github.com/rtfeldman/seamless-immutable">
+          href="https://github.com/rtfeldman/seamless-immutable"
+        >
           seamless-immutable
         </a>
          as the data structure for the component state.
@@ -23,15 +29,18 @@ exports[`test snapshot test 1`] = `
     </div>
     <div>
       <ul
-        className="list">
+        className="list"
+      >
         <li>
           <input
             checked={false}
             className="pointer"
             onChange={[Function]}
-            type="checkbox" />
+            type="checkbox"
+          />
           <label
-            className="ml2">
+            className="ml2"
+          >
             Name
           </label>
         </li>
@@ -40,9 +49,11 @@ exports[`test snapshot test 1`] = `
             checked={false}
             className="pointer"
             onChange={[Function]}
-            type="checkbox" />
+            type="checkbox"
+          />
           <label
-            className="ml2">
+            className="ml2"
+          >
             Age
           </label>
         </li>
@@ -51,33 +62,41 @@ exports[`test snapshot test 1`] = `
             checked={false}
             className="pointer"
             onChange={[Function]}
-            type="checkbox" />
+            type="checkbox"
+          />
           <label
-            className="ml2">
+            className="ml2"
+          >
             Contact
           </label>
           <ul
-            className="list">
+            className="list"
+          >
             <li>
               <input
                 checked={false}
                 className="pointer"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               <label
-                className="ml2">
+                className="ml2"
+              >
                 Telephone
               </label>
               <ul
-                className="list">
+                className="list"
+              >
                 <li>
                   <input
                     checked={false}
                     className="pointer"
                     onChange={[Function]}
-                    type="checkbox" />
+                    type="checkbox"
+                  />
                   <label
-                    className="ml2">
+                    className="ml2"
+                  >
                     Home
                   </label>
                 </li>
@@ -86,9 +105,11 @@ exports[`test snapshot test 1`] = `
                     checked={false}
                     className="pointer"
                     onChange={[Function]}
-                    type="checkbox" />
+                    type="checkbox"
+                  />
                   <label
-                    className="ml2">
+                    className="ml2"
+                  >
                     Work
                   </label>
                 </li>
@@ -99,9 +120,11 @@ exports[`test snapshot test 1`] = `
                 checked={false}
                 className="pointer"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               <label
-                className="ml2">
+                className="ml2"
+              >
                 Mobile
               </label>
             </li>
@@ -112,21 +135,26 @@ exports[`test snapshot test 1`] = `
             checked={false}
             className="pointer"
             onChange={[Function]}
-            type="checkbox" />
+            type="checkbox"
+          />
           <label
-            className="ml2">
+            className="ml2"
+          >
             Address
           </label>
           <ul
-            className="list">
+            className="list"
+          >
             <li>
               <input
                 checked={false}
                 className="pointer"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               <label
-                className="ml2">
+                className="ml2"
+              >
                 House
               </label>
             </li>
@@ -135,9 +163,11 @@ exports[`test snapshot test 1`] = `
                 checked={false}
                 className="pointer"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               <label
-                className="ml2">
+                className="ml2"
+              >
                 Road
               </label>
             </li>
@@ -146,9 +176,11 @@ exports[`test snapshot test 1`] = `
                 checked={false}
                 className="pointer"
                 onChange={[Function]}
-                type="checkbox" />
+                type="checkbox"
+              />
               <label
-                className="ml2">
+                className="ml2"
+              >
                 Zip Code
               </label>
             </li>
@@ -158,12 +190,15 @@ exports[`test snapshot test 1`] = `
     </div>
   </div>
   <div
-    className="self-center">
+    className="self-center"
+  >
     <a
-      href="https://github.com/joelgeorgev/react-checkbox-tree">
+      href="https://github.com/joelgeorgev/react-checkbox-tree"
+    >
       <img
         alt="GitHub"
-        src="github.svg" />
+        src="github.svg"
+      />
     </a>
   </div>
 </div>
