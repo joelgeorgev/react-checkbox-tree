@@ -1,5 +1,6 @@
 import React from 'react';
 import Immutable from 'seamless-immutable';
+
 import { Checkbox } from '.';
 import treeData from '../data/tree.json';
 
