@@ -3,19 +3,21 @@ import React from 'react';
 export class Checkbox extends React.PureComponent {
 
   handleToggle = () => {
-    this.props.handleToggle(this.props.node);
+    const { node, handleToggle } = this.props;
+    handleToggle(node);
   }
 
   render() {
-    if (this.props.node.childKeys && this.props.node.childKeys.length) {
-      let nodeList = this.props.node.childKeys.map(childNode => {
-        return <Checkbox key={childNode.key} node={childNode} handleToggle={this.props.handleToggle} />;
+    const { node, handleToggle } = this.props;
+    if (node.childKeys && node.childKeys.length) {
+      let nodeList = node.childKeys.map(childNode => {
+        return <Checkbox key={childNode.key} node={childNode} handleToggle={handleToggle} />;
       })
       return (
         <li>
-          <input type='checkbox' checked={this.props.node.checked} className='pointer'
+          <input type='checkbox' checked={node.checked} className='pointer'
             onChange={this.handleToggle} />
-          <label className='ml2'>{this.props.node.key}</label>
+          <label className='ml2'>{node.key}</label>
           <ul className='list'>
             {nodeList}
           </ul>
@@ -24,9 +26,9 @@ export class Checkbox extends React.PureComponent {
     } else {
       return (
         <li>
-          <input type='checkbox' checked={this.props.node.checked} className='pointer'
+          <input type='checkbox' checked={node.checked} className='pointer'
             onChange={this.handleToggle} />
-          <label className='ml2'>{this.props.node.key}</label>
+          <label className='ml2'>{node.key}</label>
         </li>
       );
     }
