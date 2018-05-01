@@ -51,7 +51,7 @@ export class CheckboxTree extends React.PureComponent {
     });
   }
 
-  renderCheckboxTree() {
+  renderCheckboxTree = () => {
     return this.state.tree.map(node => {
       return <Checkbox key={node.key} node={node} handleToggle={this.toggleCheckbox} />;
     })
