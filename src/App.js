@@ -1,8 +1,8 @@
-import React from 'react';
-import 'tachyons/css/tachyons.min.css';
+import React from 'react'
+import 'tachyons/css/tachyons.min.css'
 
-import { Intro, CheckboxTree } from './components';
-import github from './assets/github.svg';
+import { Intro, CheckboxTree } from './components'
+import github from './assets/github.svg'
 
 export class App extends React.PureComponent {
   render() {
@@ -18,6 +18,6 @@ export class App extends React.PureComponent {
           </a>
         </div>
       </div>
-    );
+    )
   }
 }

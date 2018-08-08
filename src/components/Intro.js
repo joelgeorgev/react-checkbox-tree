@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export class Intro extends React.PureComponent {
   render() {
@@ -8,9 +8,9 @@ export class Intro extends React.PureComponent {
         <p>A react app showcasing a simple checkbox tree component. This project was created
         using <a href='https://github.com/facebookincubator/create-react-app'>create-react-app</a>.
         Uses <a href='https://github.com/rtfeldman/seamless-immutable'>seamless-immutable</a> as
-        the data structure for the component state.
+          the data structure for the component state.
         </p>
       </div>
-    );
+    )
   }
 }

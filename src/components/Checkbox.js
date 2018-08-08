@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
 export class Checkbox extends React.PureComponent {
 
   handleChange = () => {
-    const { node, onToggle } = this.props;
-    onToggle(node);
+    const { node, onToggle } = this.props
+    onToggle(node)
   }
 
   render() {
-    const { node, onToggle } = this.props;
+    const { node, onToggle } = this.props
     if (node.childKeys && node.childKeys.length) {
       let nodeList = node.childKeys.map(childNode => {
-        return <Checkbox key={childNode.key} node={childNode} onToggle={onToggle} />;
+        return <Checkbox key={childNode.key} node={childNode} onToggle={onToggle} />
       })
       return (
         <li>
@@ -22,7 +22,7 @@ export class Checkbox extends React.PureComponent {
             {nodeList}
           </ul>
         </li>
-      );
+      )
     } else {
       return (
         <li>
@@ -30,7 +30,7 @@ export class Checkbox extends React.PureComponent {
             onChange={this.handleChange} />
           <label className='ml2'>{node.key}</label>
         </li>
-      );
+      )
     }
   }
 }
