@@ -32,9 +32,11 @@ export class CheckboxTree extends React.PureComponent {
     const toggleSelfandChildren = (id, checked) => {
       const { nodes } = this.state
       const node = nodes[id]
+      const { childIds } = node
+
       toggleNode(id, checked)
-      if (node.childIds && node.childIds.length) {
-        node.childIds.forEach((childId) => toggleSelfandChildren(childId, checked))
+      if (childIds.length) {
+        childIds.forEach((childId) => toggleSelfandChildren(childId, checked))
       }
     }
 
