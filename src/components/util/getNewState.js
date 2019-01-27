@@ -1,7 +1,5 @@
 export const getNewState = ({ id, prevState }) => {
 
-  let nodes = {}
-
   const clone = (prevState) => {
     let newState = {}
 
@@ -51,7 +49,7 @@ export const getNewState = ({ id, prevState }) => {
     }
   }
 
-  nodes = clone(prevState)
+  const nodes = clone(prevState)
   toggleSelfandChildren({ id, nodes, checked: !nodes[id].checked })
   toggleParent({ id, nodes })
   return nodes
