@@ -18,13 +18,7 @@ exports[`snapshot test 1`] = `
         >
           create-react-app
         </a>
-        . Uses 
-        <a
-          href="https://github.com/rtfeldman/seamless-immutable"
-        >
-          seamless-immutable
-        </a>
-         as the data structure for the component state.
+        .
       </p>
     </div>
     <ul

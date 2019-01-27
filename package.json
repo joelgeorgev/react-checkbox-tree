@@ -29,7 +29,7 @@
     "reactjs",
     "checkbox",
     "tree",
-    "seamless-immutable"
+    "normalize"
   ],
   "author": "Joel George V",
   "homepage": "https://joelgeorgev.github.io/react-checkbox-tree",
