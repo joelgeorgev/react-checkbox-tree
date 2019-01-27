@@ -9,7 +9,6 @@ export const normalize = (list = [], recursionKey = 'children') => {
     const { [recursionKey]: unused, ...rest } = node
     normalizedData[id] = {
       ...rest,
-      checked: parentId >= 0 ? false : true,
       childIds: []
     }
     if (parentId >= 0) {
