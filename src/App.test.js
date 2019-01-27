@@ -18,10 +18,10 @@ it('snapshot test', () => {
 })
 
 it('state change test', () => {
-  let app = ReactTestUtils.renderIntoDocument(<App />)
+  const app = ReactTestUtils.renderIntoDocument(<App />)
 
   // Get first node with childKeys
-  let inputElement = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'input')[2]
+  const inputElement = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'input')[2]
   ReactTestUtils.Simulate.change(inputElement)
   expect(inputElement.checked).toBe(true)
 })
