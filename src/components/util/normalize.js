@@ -1,14 +1,15 @@
-export const normalize = (list = [], recursionKey = 'children') => {
+export const normalize = ({ list = [], recursionKey = 'children' }) => {
 
   let normalizedData = {}
   let counter = -1
 
-  const transform = (node, parentId) => {
+  const transform = ({ node, parentId }) => {
     counter += 1
     const id = counter
     const { [recursionKey]: unused, ...rest } = node
     normalizedData[id] = {
       ...rest,
+      parentId,
       childIds: []
     }
     if (parentId >= 0) {
@@ -16,11 +17,11 @@ export const normalize = (list = [], recursionKey = 'children') => {
     }
     if (node[recursionKey] && node[recursionKey].length) {
       node[recursionKey].forEach((childNode) => {
-        transform(childNode, id)
+        transform({ node: childNode, parentId: id })
       })
     }
   }
 
-  transform({ [recursionKey]: list })
+  transform({ node: { [recursionKey]: list } })
   return normalizedData
 }

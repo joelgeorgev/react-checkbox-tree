@@ -22,25 +22,30 @@ describe('normalize test', () => {
     ]
     const output = {
       0: {
-        childIds: [1]
+        childIds: [1],
+        parentId: undefined
       },
       1: {
         text: 'Parent',
+        parentId: 0,
         childIds: [2, 3]
       },
       2: {
         text: 'Child 1',
+        parentId: 1,
         childIds: []
       },
       3: {
         text: 'Child 2',
+        parentId: 1,
         childIds: [4]
       },
       4: {
         text: 'Grandchild',
+        parentId: 3,
         childIds: []
       }
     }
-    expect(normalize(input)).toEqual(output)
+    expect(normalize({ list: input })).toEqual(output)
   })
 })
