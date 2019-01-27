@@ -1,69 +1,51 @@
 import React from 'react'
-import Immutable from 'seamless-immutable'
 
 import { Checkbox } from '.'
-import treeData from '../data/tree.json'
+import { normalize } from './util'
+import data from '../data/data.json'
 
 export class CheckboxTree extends React.PureComponent {
 
   constructor(props) {
     super(props)
     this.state = {
-      tree: Immutable(treeData)
+      nodes: normalize(data, 'childKeys')
     }
   }
 
-  toggleCheckbox = (targetNode) => {
+  toggleCheckbox = (id) => {
 
-    // Get key and checkbox status from targetNode object
-    let key = targetNode.key
-    let checkboxStatus = !targetNode.checked
-
-    // Create a mutable deep clone of the component state
-    let stateCopy = Immutable.asMutable(this.state.tree, { deep: true })
-
-    let toggleChildNodes = (node => {
-      node.checked = checkboxStatus
-      if (node.childKeys && node.childKeys.length) {
-        node.childKeys.forEach(toggleChildNodes)
-      }
-    })
-
-    let traverseNodes = (node => {
-      if (node.key === key) {
-        node.checked = checkboxStatus
-        if (node.childKeys && node.childKeys.length) {
-          node.childKeys.forEach(toggleChildNodes)
+    const toggleNode = (id, checked) => {
+      this.setState((prevState) => {
+        return {
+          nodes: {
+            ...prevState.nodes,
+            [id]: {
+              ...prevState.nodes[id],
+              checked
+            }
+          }
         }
+      })
+    }
+
+    const toggleSelfandChildren = (id, checked) => {
+      const { nodes } = this.state
+      const node = nodes[id]
+      toggleNode(id, checked)
+      if (node.childIds && node.childIds.length) {
+        node.childIds.forEach((childId) => toggleSelfandChildren(childId, checked))
       }
-      if (node.childKeys && node.childKeys.length) {
-        node.childKeys.forEach(traverseNodes)
-      }
-    })
+    }
 
-    stateCopy.forEach(traverseNodes)
-
-    // Create a new immutable state
-    let newState = Immutable(stateCopy)
-
-    this.setState({
-      tree: newState
-    })
-  }
-
-  renderCheckboxTree = () => {
-    return this.state.tree.map(node => {
-      return <Checkbox key={node.key} node={node} onToggle={this.toggleCheckbox} />
-    })
+    const { nodes } = this.state
+    toggleSelfandChildren(id, !nodes[id].checked)
   }
 
   render() {
+    const { nodes } = this.state
     return (
-      <div>
-        <ul className='list'>
-          {this.renderCheckboxTree()}
-        </ul>
-      </div>
+      <Checkbox id={0} nodes={nodes} onToggle={this.toggleCheckbox} />
     )
   }
 }

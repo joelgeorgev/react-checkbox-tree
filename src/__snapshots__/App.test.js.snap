@@ -18,16 +18,51 @@ exports[`snapshot test 1`] = `
         >
           create-react-app
         </a>
-        . Uses 
-        <a
-          href="https://github.com/rtfeldman/seamless-immutable"
-        >
-          seamless-immutable
-        </a>
-         as the data structure for the component state.
+        .
       </p>
     </div>
-    <div>
+    <ul
+      className="list"
+    >
+      <li>
+        <input
+          checked={false}
+          className="pointer"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="ml2"
+        >
+          Name
+        </label>
+      </li>
+      <li>
+        <input
+          checked={false}
+          className="pointer"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="ml2"
+        >
+          Age
+        </label>
+      </li>
+      <li>
+        <input
+          checked={false}
+          className="pointer"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="ml2"
+        >
+          Contact
+        </label>
+      </li>
       <ul
         className="list"
       >
@@ -41,9 +76,39 @@ exports[`snapshot test 1`] = `
           <label
             className="ml2"
           >
-            Name
+            Telephone
           </label>
         </li>
+        <ul
+          className="list"
+        >
+          <li>
+            <input
+              checked={false}
+              className="pointer"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="ml2"
+            >
+              Home
+            </label>
+          </li>
+          <li>
+            <input
+              checked={false}
+              className="pointer"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              className="ml2"
+            >
+              Work
+            </label>
+          </li>
+        </ul>
         <li>
           <input
             checked={false}
@@ -54,140 +119,67 @@ exports[`snapshot test 1`] = `
           <label
             className="ml2"
           >
-            Age
+            Mobile
           </label>
-        </li>
-        <li>
-          <input
-            checked={false}
-            className="pointer"
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="ml2"
-          >
-            Contact
-          </label>
-          <ul
-            className="list"
-          >
-            <li>
-              <input
-                checked={false}
-                className="pointer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="ml2"
-              >
-                Telephone
-              </label>
-              <ul
-                className="list"
-              >
-                <li>
-                  <input
-                    checked={false}
-                    className="pointer"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="ml2"
-                  >
-                    Home
-                  </label>
-                </li>
-                <li>
-                  <input
-                    checked={false}
-                    className="pointer"
-                    onChange={[Function]}
-                    type="checkbox"
-                  />
-                  <label
-                    className="ml2"
-                  >
-                    Work
-                  </label>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <input
-                checked={false}
-                className="pointer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="ml2"
-              >
-                Mobile
-              </label>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <input
-            checked={false}
-            className="pointer"
-            onChange={[Function]}
-            type="checkbox"
-          />
-          <label
-            className="ml2"
-          >
-            Address
-          </label>
-          <ul
-            className="list"
-          >
-            <li>
-              <input
-                checked={false}
-                className="pointer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="ml2"
-              >
-                House
-              </label>
-            </li>
-            <li>
-              <input
-                checked={false}
-                className="pointer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="ml2"
-              >
-                Road
-              </label>
-            </li>
-            <li>
-              <input
-                checked={false}
-                className="pointer"
-                onChange={[Function]}
-                type="checkbox"
-              />
-              <label
-                className="ml2"
-              >
-                Zip Code
-              </label>
-            </li>
-          </ul>
         </li>
       </ul>
-    </div>
+      <li>
+        <input
+          checked={false}
+          className="pointer"
+          onChange={[Function]}
+          type="checkbox"
+        />
+        <label
+          className="ml2"
+        >
+          Address
+        </label>
+      </li>
+      <ul
+        className="list"
+      >
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="ml2"
+          >
+            House
+          </label>
+        </li>
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="ml2"
+          >
+            Road
+          </label>
+        </li>
+        <li>
+          <input
+            checked={false}
+            className="pointer"
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <label
+            className="ml2"
+          >
+            Zip Code
+          </label>
+        </li>
+      </ul>
+    </ul>
   </div>
   <div
     className="self-center"
