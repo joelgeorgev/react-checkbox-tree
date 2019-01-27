@@ -8,8 +8,8 @@ export class Checkbox extends React.PureComponent {
   }
 
   render() {
-    const { id, tree, onToggle } = this.props
-    const node = tree[id]
+    const { id, nodes, onToggle } = this.props
+    const node = nodes[id]
     const { key, childIds, checked } = node
 
     return (
@@ -24,7 +24,7 @@ export class Checkbox extends React.PureComponent {
           (<ul className='list'>
             {childIds.map((childId) => {
               return (<Checkbox key={childId} id={childId}
-                tree={tree} onToggle={onToggle} />)
+                nodes={nodes} onToggle={onToggle} />)
             })}
           </ul>)
           :
