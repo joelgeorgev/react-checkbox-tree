@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "A react app showcasing a simple checkbox tree component.",
   "dependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
   },
   "devDependencies": {
     "coveralls": "^3.0.2",
