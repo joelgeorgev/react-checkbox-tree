@@ -1,13 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ReactTestUtils from 'react-dom/test-utils'
 import renderer from 'react-test-renderer'
 
 import { App } from './App'
 
 it('smoke test', () => {
-  const div = document.createElement('div')
-  ReactDOM.render(<App />, div)
+  const container = document.createElement('div')
+  ReactDOM.render(<App />, container)
 })
 
 it('snapshot test', () => {
@@ -18,10 +17,13 @@ it('snapshot test', () => {
 })
 
 it('state change test', () => {
-  const app = ReactTestUtils.renderIntoDocument(<App />)
-
-  // Get first node with childKeys
-  const inputElement = ReactTestUtils.scryRenderedDOMComponentsWithTag(app, 'input')[2]
-  ReactTestUtils.Simulate.change(inputElement)
+  const container = document.createElement('div')
+  renderer.act(() => {
+    ReactDOM.render(<App />, container)
+  })
+  const inputElement = container.querySelectorAll('input')[2]
+  renderer.act(() => {
+    inputElement.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+  })
   expect(inputElement.checked).toBe(true)
 })

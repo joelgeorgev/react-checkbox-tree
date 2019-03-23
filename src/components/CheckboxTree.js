@@ -1,30 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Checkbox } from '.'
 import { normalize, getNewState } from './util'
 import data from '../data/data.json'
 
-export class CheckboxTree extends React.PureComponent {
+export const CheckboxTree = () => {
+  const [nodes, setNodes] = useState(normalize({ list: data, recursionKey: 'childKeys' }))
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      nodes: normalize({ list: data, recursionKey: 'childKeys' })
-    }
+  const toggleCheckbox = (id) => {
+    setNodes((prevNodes) => getNewState({ id, prevState: prevNodes }))
   }
 
-  toggleCheckbox = (id) => {
-    this.setState((prevState) => {
-      return {
-        nodes: getNewState({ id, prevState: prevState.nodes })
-      }
-    })
-  }
-
-  render() {
-    const { nodes } = this.state
-    return (
-      <Checkbox id={0} nodes={nodes} onToggle={this.toggleCheckbox} />
-    )
-  }
+  return (
+    <Checkbox id={0} nodes={nodes} onToggle={toggleCheckbox} />
+  )
 }
