@@ -4,9 +4,7 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
   const node = nodes[id]
   const { key, childIds, checked } = node
 
-  const handleChange = () => {
-    onToggle(id)
-  }
+  const handleChange = () => onToggle(id)
 
   return (
     <React.Fragment key={id}>
