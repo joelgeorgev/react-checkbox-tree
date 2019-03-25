@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Checkbox } from '.'
-import { normalize, getNewState } from './util'
+import { normalize, getNewState } from '../utils'
 import data from '../data/data.json'
 
 export const CheckboxTree = () => {
