@@ -12,6 +12,8 @@ export const CheckboxTree = () => {
   }
 
   return (
-    <Checkbox id={0} nodes={nodes} onToggle={toggleCheckbox} />
+    <ul className='list'>
+      <Checkbox id={0} nodes={nodes} onToggle={toggleCheckbox} />
+    </ul>
   )
 }

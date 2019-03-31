@@ -10,17 +10,21 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
     <React.Fragment key={id}>
       {key &&
         <li>
-          <input type='checkbox' checked={checked} className='pointer'
-            onChange={handleChange} />
-          <label className='ml2'>{key}</label>
+          <label>
+            <input type='checkbox' checked={checked} className='mr2 pointer'
+              onChange={handleChange} />{key}
+          </label>
         </li>}
       {childIds.length ?
-        (<ul className='list'>
-          {childIds.map((childId) => {
-            return (<Checkbox key={childId} id={childId}
-              nodes={nodes} onToggle={onToggle} />)
-          })}
-        </ul>)
+        (<li>
+          <ul className='list'>
+            {childIds.map((childId) => {
+              return (<Checkbox key={childId} id={childId}
+                nodes={nodes} onToggle={onToggle} />)
+            })}
+          </ul>
+        </li>
+        )
         :
         null}
     </React.Fragment>
