@@ -1,5 +1,4 @@
 export const getNewState = ({ id, prevState }) => {
-
   const clone = (prevState) => {
     let newState = {}
 
@@ -26,17 +25,15 @@ export const getNewState = ({ id, prevState }) => {
   }
 
   const toggleParent = ({ id, nodes }) => {
-
     const isNodeChecked = ({ id, nodes }) => {
       const node = nodes[id]
       const { childIds } = node
 
-      return childIds.length ?
-        (childIds.reduce((checkedAcc, childId) => {
-          return checkedAcc && isNodeChecked({ id: childId, nodes })
-        }, true))
-        :
-        node.checked
+      return childIds.length
+        ? childIds.reduce((checkedAcc, childId) => {
+            return checkedAcc && isNodeChecked({ id: childId, nodes })
+          }, true)
+        : node.checked
     }
 
     const parentId = nodes[id].parentId

@@ -15,7 +15,8 @@ exports[`snapshot test 1`] = `
           React Checkbox Tree
         </h3>
         <p>
-          A react app showcasing a simple checkbox tree component. This project was created using 
+          A react app showcasing a simple checkbox tree component. This project was created using
+           
           <a
             href="https://github.com/facebookincubator/create-react-app"
           >
