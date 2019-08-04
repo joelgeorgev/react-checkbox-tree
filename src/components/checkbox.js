@@ -24,16 +24,14 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
       {childIds.length ? (
         <li>
           <ul className='list'>
-            {childIds.map((childId) => {
-              return (
-                <Checkbox
-                  key={childId}
-                  id={childId}
-                  nodes={nodes}
-                  onToggle={onToggle}
-                />
-              )
-            })}
+            {childIds.map((childId) => (
+              <Checkbox
+                key={childId}
+                id={childId}
+                nodes={nodes}
+                onToggle={onToggle}
+              />
+            ))}
           </ul>
         </li>
       ) : null}

@@ -30,9 +30,11 @@ export const getNewState = ({ id, prevState }) => {
       const { childIds } = node
 
       return childIds.length
-        ? childIds.reduce((checkedAcc, childId) => {
-            return checkedAcc && isNodeChecked({ id: childId, nodes })
-          }, true)
+        ? childIds.reduce(
+            (checkedAcc, childId) =>
+              checkedAcc && isNodeChecked({ id: childId, nodes }),
+            true
+          )
         : node.checked
     }
 
