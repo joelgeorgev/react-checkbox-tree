@@ -1,4 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
+
+const List = styled.ul`
+  list-style-type: none;
+`
+
+const StyledCheckbox = styled.input`
+  margin-right: 0.5rem;
+  cursor: pointer;
+`
 
 export const Checkbox = ({ id, nodes, onToggle }) => {
   const node = nodes[id]
@@ -11,10 +21,9 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
       {key && (
         <li>
           <label>
-            <input
+            <StyledCheckbox
               type='checkbox'
               checked={checked}
-              className='mr2 pointer'
               onChange={handleChange}
             />
             {key}
@@ -23,7 +32,7 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
       )}
       {childIds.length ? (
         <li>
-          <ul className='list'>
+          <List>
             {childIds.map((childId) => (
               <Checkbox
                 key={childId}
@@ -32,7 +41,7 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
                 onToggle={onToggle}
               />
             ))}
-          </ul>
+          </List>
         </li>
       ) : null}
     </React.Fragment>

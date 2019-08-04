@@ -4,15 +4,15 @@
   "description": "A react app showcasing a simple checkbox tree component.",
   "dependencies": {
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "coveralls": "^3.0.5",
     "gh-pages": "^2.1.0",
     "prettier": "^1.18.2",
     "react-scripts": "^3.0.1",
-    "react-test-renderer": "^16.8.6",
-    "tachyons": "^4.11.1"
+    "react-test-renderer": "^16.8.6"
   },
   "scripts": {
     "start": "react-scripts start",
