@@ -11,17 +11,19 @@ const Section = styled.section`
   max-width: 64rem;
   height: 100vh;
   margin: 0 auto;
-  padding: 4rem 0;
 `
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  margin-top: 2rem;
+  overflow: auto;
 `
 
 const Footer = styled.div`
   align-self: center;
+  margin: 2rem;
 `
 
 export const App = () => (
