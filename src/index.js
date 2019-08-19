@@ -8,6 +8,14 @@ import woff from './fonts/source-sans-pro-v11-latin-regular.woff'
 import registerServiceWorker from './registerServiceWorker'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
   body {
     margin: 0;
     padding: 0;
