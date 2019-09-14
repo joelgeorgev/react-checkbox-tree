@@ -1,3 +1,3 @@
-export * from './checkbox'
-export * from './checkbox-tree'
-export * from './intro'
+export * from './CheckboxTree'
+export * from './Checkbox'
+export * from './Intro'

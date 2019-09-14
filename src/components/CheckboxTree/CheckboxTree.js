@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { Checkbox } from '.'
-import { normalize, getNewState } from '../utils'
+import { Checkbox } from '..'
+import { normalize, getNewState } from '../../utils'
 
 const List = styled.ul`
   list-style-type: none;
