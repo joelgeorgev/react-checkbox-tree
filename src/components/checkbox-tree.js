@@ -3,13 +3,12 @@ import styled from 'styled-components'
 
 import { Checkbox } from '.'
 import { normalize, getNewState } from '../utils'
-import data from '../data/data.json'
 
 const List = styled.ul`
   list-style-type: none;
 `
 
-export const CheckboxTree = () => {
+export const CheckboxTree = ({ data }) => {
   const [nodes, setNodes] = useState(
     normalize({ list: data, recursionKey: 'childKeys' })
   )

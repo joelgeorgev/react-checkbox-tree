@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Intro, CheckboxTree } from './components'
+import data from './data/data.json'
 import github from './assets/github.svg'
 
 const Section = styled.section`
@@ -31,7 +32,7 @@ export const App = () => (
     <Section>
       <Wrapper>
         <Intro />
-        <CheckboxTree />
+        <CheckboxTree data={data} />
       </Wrapper>
       <Footer>
         <a href='https://github.com/joelgeorgev/react-checkbox-tree'>
