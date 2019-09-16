@@ -1,9 +1,9 @@
-export const getNewState = ({ id, prevState }) => {
-  const clone = (prevState) => {
+export const getNewState = ({ id, state }) => {
+  const clone = (state) => {
     let newState = {}
 
-    Object.keys(prevState).forEach((value) => {
-      newState[value] = { ...prevState[value] }
+    Object.keys(state).forEach((value) => {
+      newState[value] = { ...state[value] }
     })
     return newState
   }
@@ -39,6 +39,9 @@ export const getNewState = ({ id, prevState }) => {
     }
 
     const parentId = nodes[id].parentId
+    if (!parentId) {
+      return
+    }
     const parentNode = nodes[parentId]
     const areChildrenChecked = isNodeChecked({ id: parentId, nodes })
 
@@ -48,7 +51,10 @@ export const getNewState = ({ id, prevState }) => {
     }
   }
 
-  const nodes = clone(prevState)
+  if (!state[id]) {
+    return state
+  }
+  const nodes = clone(state)
   toggleSelfandChildren({ id, nodes, checked: !nodes[id].checked })
   toggleParent({ id, nodes })
   return nodes
