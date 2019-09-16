@@ -1,10 +1,10 @@
 import { normalize } from '.'
 
 describe('normalize tests', () => {
-  const buildObject = ({ childIds = [], parentId, ...rest }) => ({
-    childIds,
-    parentId,
-    ...rest
+  const buildObject = (params) => ({
+    childIds: [],
+    parentId: undefined,
+    ...params
   })
 
   describe(`When given an object with a recursive structure, 
