@@ -1,4 +1,4 @@
-export const normalize = ({ list = [], recursionKey = 'children' }) => {
+export const normalize = ({ data, recursionKey = 'children' }) => {
   let normalizedData = {}
   let counter = -1
 
@@ -21,6 +21,6 @@ export const normalize = ({ list = [], recursionKey = 'children' }) => {
     }
   }
 
-  transform({ node: { [recursionKey]: list } })
+  transform({ node: data })
   return normalizedData
 }

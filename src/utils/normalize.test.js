@@ -2,26 +2,30 @@ import { normalize } from '.'
 
 describe('normalize test', () => {
   it('should handle list containing recursive keys', () => {
-    const input = [
-      {
-        text: 'Parent',
-        children: [
-          {
-            text: 'Child 1'
-          },
-          {
-            text: 'Child 2',
-            children: [
-              {
-                text: 'Grandchild'
-              }
-            ]
-          }
-        ]
-      }
-    ]
+    const input = {
+      text: 'Root',
+      children: [
+        {
+          text: 'Parent',
+          children: [
+            {
+              text: 'Child 1'
+            },
+            {
+              text: 'Child 2',
+              children: [
+                {
+                  text: 'Grandchild'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
     const output = {
       0: {
+        text: 'Root',
         childIds: [1],
         parentId: undefined
       },
@@ -46,6 +50,6 @@ describe('normalize test', () => {
         childIds: []
       }
     }
-    expect(normalize({ list: input })).toEqual(output)
+    expect(normalize({ data: input })).toEqual(output)
   })
 })

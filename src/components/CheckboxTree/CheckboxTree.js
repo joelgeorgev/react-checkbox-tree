@@ -10,7 +10,7 @@ const List = styled.ul`
 
 export const CheckboxTree = ({ data }) => {
   const [nodes, setNodes] = useState(
-    normalize({ list: data, recursionKey: 'childKeys' })
+    normalize({ data, recursionKey: 'childKeys' })
   )
 
   const toggleCheckbox = (id) => {
