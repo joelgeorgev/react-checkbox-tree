@@ -1,51 +1,51 @@
 {
-  "childKeys": [
+  "children": [
     {
-      "key": "Name",
+      "text": "Name",
       "checked": false
     },
     {
-      "key": "Age",
+      "text": "Age",
       "checked": false
     },
     {
-      "key": "Contact",
+      "text": "Contact",
       "checked": false,
-      "childKeys": [
+      "children": [
         {
-          "key": "Telephone",
+          "text": "Telephone",
           "checked": false,
-          "childKeys": [
+          "children": [
             {
-              "key": "Home",
+              "text": "Home",
               "checked": false
             },
             {
-              "key": "Work",
+              "text": "Work",
               "checked": false
             }
           ]
         },
         {
-          "key": "Mobile",
+          "text": "Mobile",
           "checked": false
         }
       ]
     },
     {
-      "key": "Address",
+      "text": "Address",
       "checked": false,
-      "childKeys": [
+      "children": [
         {
-          "key": "House",
+          "text": "House",
           "checked": false
         },
         {
-          "key": "Road",
+          "text": "Road",
           "checked": false
         },
         {
-          "key": "Zip Code",
+          "text": "Zip Code",
           "checked": false
         }
       ]

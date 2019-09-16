@@ -12,13 +12,13 @@ const StyledCheckbox = styled.input`
 
 export const Checkbox = ({ id, nodes, onToggle }) => {
   const node = nodes[id]
-  const { key, childIds, checked } = node
+  const { text, childIds, checked } = node
 
   const handleChange = () => onToggle(id)
 
   return (
     <React.Fragment key={id}>
-      {key && (
+      {text && (
         <li>
           <label>
             <StyledCheckbox
@@ -26,7 +26,7 @@ export const Checkbox = ({ id, nodes, onToggle }) => {
               checked={checked}
               onChange={handleChange}
             />
-            {key}
+            {text}
           </label>
         </li>
       )}
