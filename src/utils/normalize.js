@@ -5,7 +5,7 @@ export const normalize = ({ data, recursionKey = 'children' }) => {
   const transform = ({ node, parentId }) => {
     counter += 1
     const id = counter
-    const { [recursionKey]: unused, ...rest } = node
+    const { [recursionKey]: exclude, ...rest } = node
     normalizedData[id] = {
       ...rest,
       parentId,
