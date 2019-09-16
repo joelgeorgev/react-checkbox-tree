@@ -1,55 +1,50 @@
 import { normalize } from '.'
 
-describe('normalize test', () => {
-  it('should handle list containing recursive keys', () => {
-    const input = {
-      text: 'Root',
-      children: [
+describe('normalize tests', () => {
+  const buildObject = ({ childIds = [], parentId, ...rest }) => ({
+    childIds,
+    parentId,
+    ...rest
+  })
+
+  describe(`When given an object with a recursive structure, 
+  it should return a normalized object with indices as keys`, () => {
+    const cases = [
+      [
+        { text: 'Parent' },
+        {
+          0: buildObject({ text: 'Parent' })
+        }
+      ],
+      [
+        {
+          text: 'Parent',
+          children: [{ text: 'Child' }]
+        },
+        {
+          0: buildObject({ text: 'Parent', childIds: [1] }),
+          1: buildObject({ text: 'Child', parentId: 0 })
+        }
+      ],
+      [
         {
           text: 'Parent',
           children: [
             {
-              text: 'Child 1'
-            },
-            {
-              text: 'Child 2',
-              children: [
-                {
-                  text: 'Grandchild'
-                }
-              ]
+              text: 'Child',
+              children: [{ text: 'Grandchild' }]
             }
           ]
+        },
+        {
+          0: buildObject({ text: 'Parent', childIds: [1] }),
+          1: buildObject({ text: 'Child', childIds: [2], parentId: 0 }),
+          2: buildObject({ text: 'Grandchild', parentId: 1 })
         }
       ]
-    }
-    const output = {
-      0: {
-        text: 'Root',
-        childIds: [1],
-        parentId: undefined
-      },
-      1: {
-        text: 'Parent',
-        parentId: 0,
-        childIds: [2, 3]
-      },
-      2: {
-        text: 'Child 1',
-        parentId: 1,
-        childIds: []
-      },
-      3: {
-        text: 'Child 2',
-        parentId: 1,
-        childIds: [4]
-      },
-      4: {
-        text: 'Grandchild',
-        parentId: 3,
-        childIds: []
-      }
-    }
-    expect(normalize({ data: input })).toEqual(output)
+    ]
+    test.each(cases)('Input: %j', (actual, expected) => {
+      expect(normalize({ data: actual })).toEqual(expected)
+    })
   })
 })
