@@ -7,8 +7,7 @@ describe('normalize tests', () => {
     ...params
   })
 
-  describe(`When given an object with a recursive structure, 
-  it should return a normalized object with indices as keys`, () => {
+  describe('When given an object with a recursive structure like', () => {
     const cases = [
       [
         { text: 'Parent' },
@@ -43,7 +42,7 @@ describe('normalize tests', () => {
         }
       ]
     ]
-    test.each(cases)('Input: %j', (actual, expected) => {
+    test.each(cases)('%o, it should return %o', (actual, expected) => {
       expect(normalize({ data: actual })).toEqual(expected)
     })
   })
