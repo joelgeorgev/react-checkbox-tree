@@ -15,21 +15,21 @@ describe('getNewState tests', () => {
 
     const cases = [
       [
-        0,
         {
           0: getNode()
         },
+        0,
         {
           0: { ...getNode(), checked: true }
         }
       ],
       [
-        0,
         {
           0: getParent(),
           1: getFirstChild(),
           2: getSecondChild()
         },
+        0,
         {
           0: { ...getParent(), checked: true },
           1: { ...getFirstChild(), checked: true },
@@ -37,12 +37,12 @@ describe('getNewState tests', () => {
         }
       ],
       [
-        2,
         {
           0: getParent(),
           1: { ...getFirstChild(), checked: true },
           2: getSecondChild()
         },
+        2,
         {
           0: { ...getParent(), checked: true },
           1: { ...getFirstChild(), checked: true },
@@ -51,9 +51,9 @@ describe('getNewState tests', () => {
       ]
     ]
     test.each(cases)(
-      'an id %i and a state %o, it should return %o',
-      (id, state, newState) => {
-        expect(getNewState({ id, state })).toEqual(newState)
+      'a state %o and an id %i, it should return %o',
+      (state, id, newState) => {
+        expect(getNewState({ state, id })).toEqual(newState)
       }
     )
   })
