@@ -42,7 +42,7 @@ export const getNewState = ({ id, state }) => {
     }
 
     const parentId = nodes[id].parentId
-    if (!parentId) {
+    if (!(parentId >= 0)) {
       return
     }
     const parentNode = nodes[parentId]
