@@ -16,6 +16,7 @@ describe('getNewState tests', () => {
 
     const cases = [
       [
+        // Check node
         {
           0: getNode()
         },
@@ -25,6 +26,7 @@ describe('getNewState tests', () => {
         }
       ],
       [
+        // Uncheck node
         {
           0: { ...getNode(), checked: true }
         },
@@ -34,6 +36,27 @@ describe('getNewState tests', () => {
         }
       ],
       [
+        // Pass invalid Id
+        {
+          0: getNode()
+        },
+        5,
+        {
+          0: getNode()
+        }
+      ],
+      [
+        // Pass invalid childIds
+        {
+          0: buildObject({ childIds: [5] })
+        },
+        0,
+        {
+          0: buildObject({ childIds: [5], checked: true })
+        }
+      ],
+      [
+        // Check all child nodes recursively
         {
           0: getParent(),
           1: getFirstChild(),
@@ -49,6 +72,7 @@ describe('getNewState tests', () => {
         }
       ],
       [
+        // Check all parent nodes recursively
         {
           0: getParent(),
           1: getFirstChild(),
