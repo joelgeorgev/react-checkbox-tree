@@ -10,8 +10,9 @@ describe('getNewState tests', () => {
     })
     const getNode = () => buildObject()
     const getParent = () => buildObject({ childIds: [1, 2] })
-    const getFirstChild = () => buildObject({ parentId: 0 })
+    const getFirstChild = () => buildObject({ childIds: [3], parentId: 0 })
     const getSecondChild = () => buildObject({ parentId: 0 })
+    const getGrandChild = () => buildObject({ parentId: 1 })
 
     const cases = [
       [
@@ -25,28 +26,41 @@ describe('getNewState tests', () => {
       ],
       [
         {
-          0: getParent(),
-          1: getFirstChild(),
-          2: getSecondChild()
+          0: { ...getNode(), checked: true }
         },
         0,
         {
-          0: { ...getParent(), checked: true },
-          1: { ...getFirstChild(), checked: true },
-          2: { ...getSecondChild(), checked: true }
+          0: getNode()
         }
       ],
       [
         {
           0: getParent(),
+          1: getFirstChild(),
+          2: getGrandChild(),
+          3: getSecondChild()
+        },
+        0,
+        {
+          0: { ...getParent(), checked: true },
           1: { ...getFirstChild(), checked: true },
-          2: getSecondChild()
+          2: { ...getGrandChild(), checked: true },
+          3: { ...getSecondChild(), checked: true }
+        }
+      ],
+      [
+        {
+          0: getParent(),
+          1: getFirstChild(),
+          2: getGrandChild(),
+          3: { ...getSecondChild(), checked: true }
         },
         2,
         {
           0: { ...getParent(), checked: true },
           1: { ...getFirstChild(), checked: true },
-          2: { ...getSecondChild(), checked: true }
+          2: { ...getGrandChild(), checked: true },
+          3: { ...getSecondChild(), checked: true }
         }
       ]
     ]
