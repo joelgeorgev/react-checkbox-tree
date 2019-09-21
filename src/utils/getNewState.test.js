@@ -46,16 +46,6 @@ describe('getNewState tests', () => {
         }
       ],
       [
-        // Pass invalid childIds
-        {
-          0: buildObject({ childIds: [5] })
-        },
-        0,
-        {
-          0: buildObject({ childIds: [5], checked: true })
-        }
-      ],
-      [
         // Check all child nodes recursively
         {
           0: getParent(),

@@ -14,9 +14,6 @@ export const getNewState = ({ id, state }) => {
 
   const toggleSelfandChildren = ({ id, nodes, checked }) => {
     const node = nodes[id]
-    if (!node) {
-      return
-    }
     const { childIds } = node
 
     toggleNode({ node, checked })
