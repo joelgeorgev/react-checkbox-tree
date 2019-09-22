@@ -36,13 +36,19 @@ describe('getNewState tests', () => {
         }
       ],
       [
-        // Pass invalid Id
+        // Check child node
         {
-          0: getNode()
+          0: getParent(),
+          1: getFirstChild(),
+          2: getGrandChild(),
+          3: getSecondChild()
         },
-        5,
+        3,
         {
-          0: getNode()
+          0: getParent(),
+          1: getFirstChild(),
+          2: getGrandChild(),
+          3: { ...getSecondChild(), checked: true }
         }
       ],
       [

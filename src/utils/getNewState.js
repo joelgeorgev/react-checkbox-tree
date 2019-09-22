@@ -42,9 +42,6 @@ export const getNewState = ({ id, state }) => {
     toggleParent({ id: parentId, nodes })
   }
 
-  if (!state[id]) {
-    return state
-  }
   const nodes = { ...state }
   toggleSelfandChildren({ id, nodes, checked: !nodes[id].checked })
   toggleParent({ id, nodes })
