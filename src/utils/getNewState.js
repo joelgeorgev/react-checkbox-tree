@@ -46,9 +46,7 @@ export const getNewState = ({ id, state }) => {
     const areChildrenChecked = isNodeChecked({ id: parentId, nodes })
 
     toggleNode({ node: parentNode, checked: areChildrenChecked })
-    if (parentNode.parentId >= 0) {
-      toggleParent({ id: parentId, nodes })
-    }
+    toggleParent({ id: parentId, nodes })
   }
 
   if (!state[id]) {
