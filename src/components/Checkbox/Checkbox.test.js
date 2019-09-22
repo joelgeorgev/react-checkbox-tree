@@ -10,29 +10,33 @@ describe('Checkbox tests', () => {
     checked: false,
     ...params
   })
-  const text = 'Hello World'
-  const getDefaultProps = () => ({
-    id: 0,
-    nodes: { 0: buildObject({ text }) },
-    onToggle: jest.fn()
-  })
+  const getDefaultProps = () => ({ id: 0, onToggle: jest.fn() })
   const createProps = (props) => ({ ...getDefaultProps(), ...props })
 
   describe('When given a normalized object with a single node', () => {
+    const text = 'Hello World'
+    const getNormalizedObject = () => ({
+      0: buildObject({ text })
+    })
+
     test('It should render text as provided', () => {
-      const { getByLabelText } = render(<Checkbox {...createProps()} />)
+      const { getByLabelText } = render(
+        <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
+      )
 
       expect(getByLabelText(text)).toBeDefined()
     })
 
     test('It should render checkbox as provided', () => {
-      const { getByLabelText } = render(<Checkbox {...createProps()} />)
+      const { getByLabelText } = render(
+        <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
+      )
 
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
     test('It should invoke callback function when clicked', () => {
-      const props = createProps()
+      const props = createProps({ nodes: getNormalizedObject() })
       const { onToggle } = props
       const { getByLabelText } = render(<Checkbox {...props} />)
 

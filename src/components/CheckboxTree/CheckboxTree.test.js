@@ -4,25 +4,32 @@ import { render, fireEvent } from '@testing-library/react'
 import { CheckboxTree } from '.'
 
 describe('CheckboxTree tests', () => {
-  const text = 'Hello World'
-  const getDefaultProps = () => ({ text, checked: false })
-  const createProps = (props) => ({ ...getDefaultProps(), ...props })
+  const createProps = (props) => ({ ...props })
 
   describe('When given a non-recursive object', () => {
+    const text = 'Hello World'
+    const getNonRecursiveObject = () => ({ text, checked: false })
+
     test('It should render text as provided', () => {
-      const { getByLabelText } = render(<CheckboxTree data={createProps()} />)
+      const { getByLabelText } = render(
+        <CheckboxTree data={createProps(getNonRecursiveObject())} />
+      )
 
       expect(getByLabelText(text)).toBeDefined()
     })
 
     test('It should render checkbox as provided', () => {
-      const { getByLabelText } = render(<CheckboxTree data={createProps()} />)
+      const { getByLabelText } = render(
+        <CheckboxTree data={createProps(getNonRecursiveObject())} />
+      )
 
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
     test('It should toggle checkbox when clicked', () => {
-      const { getByLabelText } = render(<CheckboxTree data={createProps()} />)
+      const { getByLabelText } = render(
+        <CheckboxTree data={createProps(getNonRecursiveObject())} />
+      )
 
       fireEvent.click(getByLabelText(text))
 
