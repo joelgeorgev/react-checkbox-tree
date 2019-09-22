@@ -14,14 +14,14 @@ export const getNewState = ({ id, state }) => {
   }
 
   const toggleParent = ({ id, nodes }) => {
-    const isNodeChecked = ({ id, nodes }) => {
+    const areChildrenChecked = ({ id, nodes }) => {
       const node = nodes[id]
       const { childIds } = node
 
       return childIds.length
         ? childIds.reduce(
             (checkedAcc, childId) =>
-              checkedAcc && isNodeChecked({ id: childId, nodes }),
+              checkedAcc && areChildrenChecked({ id: childId, nodes }),
             true
           )
         : node.checked
@@ -31,12 +31,14 @@ export const getNewState = ({ id, state }) => {
     if (!(parentId >= 0)) {
       return
     }
-    const areChildrenChecked = isNodeChecked({ id: parentId, nodes })
-
-    nodes[parentId] = toggleNode({
-      node: nodes[parentId],
-      checked: areChildrenChecked
-    })
+    const parentNode = nodes[parentId]
+    const shouldToggleParent = areChildrenChecked({ id: parentId, nodes })
+    if (parentNode.checked !== shouldToggleParent) {
+      nodes[parentId] = toggleNode({
+        node: nodes[parentId],
+        checked: shouldToggleParent
+      })
+    }
     toggleParent({ id: parentId, nodes })
   }
 
