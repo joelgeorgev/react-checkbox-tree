@@ -16,46 +16,68 @@ describe('Checkbox tests', () => {
     nodes: { 0: buildObject({ text }) },
     onToggle: jest.fn()
   })
-  const parent = 'Parent'
-  const child = 'Child'
-  const grandchild = 'Grandchild'
-  const getNormalizedObject = () => ({
-    0: buildObject({ text: parent, childIds: [1] }),
-    1: buildObject({ text: child, childIds: [2], parentId: 0 }),
-    2: buildObject({ text: grandchild, parentId: 1 })
-  })
   const createProps = (props) => ({ ...getDefaultProps(), ...props })
 
-  test('It should render text as provided through props', () => {
-    const { getByLabelText } = render(<Checkbox {...createProps()} />)
+  describe('When given a normalized object with a single node', () => {
+    test('It should render text as provided', () => {
+      const { getByLabelText } = render(<Checkbox {...createProps()} />)
 
-    expect(getByLabelText(text)).toBeDefined()
+      expect(getByLabelText(text)).toBeDefined()
+    })
+
+    test('It should render checkbox as provided', () => {
+      const { getByLabelText } = render(<Checkbox {...createProps()} />)
+
+      expect(getByLabelText(text).checked).toEqual(false)
+    })
+
+    test('It should invoke callback function when clicked', () => {
+      const props = createProps()
+      const { onToggle } = props
+      const { getByLabelText } = render(<Checkbox {...props} />)
+
+      fireEvent.click(getByLabelText(text))
+
+      expect(onToggle).toHaveBeenCalledTimes(1)
+      expect(onToggle).toHaveBeenCalledWith(0)
+    })
   })
 
-  test('It should render checkbox as provided through props', () => {
-    const { getByLabelText } = render(<Checkbox {...createProps()} />)
+  describe('When given a normalized object with nodes at multiple levels', () => {
+    const parent = 'Parent'
+    const child = 'Child'
+    const grandchild = 'Grandchild'
+    const getNormalizedObject = () => ({
+      0: buildObject({ text: parent, childIds: [1] }),
+      1: buildObject({ text: child, childIds: [2], parentId: 0 }),
+      2: buildObject({ text: grandchild, parentId: 1 })
+    })
 
-    expect(getByLabelText(text).checked).toEqual(false)
-  })
+    test('It should render all texts as provided', () => {
+      const { getByLabelText } = render(
+        <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
+      )
 
-  test('It should invoke callback function when clicked', () => {
-    const props = createProps()
-    const { onToggle } = props
-    const { getByLabelText } = render(<Checkbox {...props} />)
+      expect(getByLabelText(parent)).toBeDefined()
+      expect(getByLabelText(child)).toBeDefined()
+      expect(getByLabelText(grandchild)).toBeDefined()
+    })
 
-    fireEvent.click(getByLabelText(text))
+    describe('When clicked', () => {
+      const cases = [[grandchild, 2], [child, 1], [parent, 0]]
+      test.each(cases)(
+        'on "%s", it should invoke callback function with %i',
+        (text, id) => {
+          const props = createProps({ nodes: getNormalizedObject() })
+          const { onToggle } = props
+          const { getByLabelText } = render(<Checkbox {...props} />)
 
-    expect(onToggle).toHaveBeenCalledTimes(1)
-    expect(onToggle).toHaveBeenCalledWith(0)
-  })
+          fireEvent.click(getByLabelText(text))
 
-  test('It should render all texts as provided through props', () => {
-    const { getByLabelText } = render(
-      <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
-    )
-
-    expect(getByLabelText(parent)).toBeDefined()
-    expect(getByLabelText(child)).toBeDefined()
-    expect(getByLabelText(grandchild)).toBeDefined()
+          expect(onToggle).toHaveBeenCalledTimes(1)
+          expect(onToggle).toHaveBeenCalledWith(id)
+        }
+      )
+    })
   })
 })
