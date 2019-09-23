@@ -1,9 +1,11 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render, unmountComponentAtNode } from 'react-dom'
 
 import { App } from './App'
 
 it('smoke test', () => {
   const container = document.createElement('div')
-  ReactDOM.render(<App />, container)
+  render(<App />, container)
+  unmountComponentAtNode(container)
+  container.remove()
 })
