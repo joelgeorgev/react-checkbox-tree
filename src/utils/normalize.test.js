@@ -1,7 +1,7 @@
 import { normalize } from '.'
 
 describe('normalize tests', () => {
-  const buildObject = (params) => ({
+  const createNode = (params) => ({
     childIds: [],
     parentId: undefined,
     ...params
@@ -12,7 +12,7 @@ describe('normalize tests', () => {
       [
         { text: 'Parent' },
         {
-          0: buildObject({ text: 'Parent' })
+          0: createNode({ text: 'Parent' })
         }
       ],
       [
@@ -21,8 +21,8 @@ describe('normalize tests', () => {
           children: [{ text: 'Child' }]
         },
         {
-          0: buildObject({ text: 'Parent', childIds: [1] }),
-          1: buildObject({ text: 'Child', parentId: 0 })
+          0: createNode({ text: 'Parent', childIds: [1] }),
+          1: createNode({ text: 'Child', parentId: 0 })
         }
       ],
       [
@@ -36,9 +36,9 @@ describe('normalize tests', () => {
           ]
         },
         {
-          0: buildObject({ text: 'Parent', childIds: [1] }),
-          1: buildObject({ text: 'Child', childIds: [2], parentId: 0 }),
-          2: buildObject({ text: 'Grandchild', parentId: 1 })
+          0: createNode({ text: 'Parent', childIds: [1] }),
+          1: createNode({ text: 'Child', childIds: [2], parentId: 0 }),
+          2: createNode({ text: 'Grandchild', parentId: 1 })
         }
       ]
     ]

@@ -2,17 +2,17 @@ import { getNewState } from '.'
 
 describe('getNewState tests', () => {
   describe('When provided with', () => {
-    const buildObject = (params) => ({
+    const createNode = (params) => ({
       childIds: [],
       parentId: undefined,
       checked: false,
       ...params
     })
-    const getNode = () => buildObject()
-    const getParent = () => buildObject({ childIds: [1, 2] })
-    const getFirstChild = () => buildObject({ childIds: [3], parentId: 0 })
-    const getSecondChild = () => buildObject({ parentId: 0 })
-    const getGrandChild = () => buildObject({ parentId: 1 })
+    const getNode = () => createNode()
+    const getParent = () => createNode({ childIds: [1, 2] })
+    const getFirstChild = () => createNode({ childIds: [3], parentId: 0 })
+    const getSecondChild = () => createNode({ parentId: 0 })
+    const getGrandChild = () => createNode({ parentId: 1 })
 
     const cases = [
       [

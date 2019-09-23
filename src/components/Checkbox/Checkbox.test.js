@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react'
 import { Checkbox } from '.'
 
 describe('Checkbox tests', () => {
-  const buildObject = (params) => ({
+  const createNode = (params) => ({
     childIds: [],
     parentId: undefined,
     checked: false,
@@ -16,7 +16,7 @@ describe('Checkbox tests', () => {
   describe('When given a normalized object with a single node', () => {
     const text = 'Hello World'
     const getNormalizedObject = () => ({
-      0: buildObject({ text })
+      0: createNode({ text })
     })
 
     test('It should render text as provided', () => {
@@ -52,9 +52,9 @@ describe('Checkbox tests', () => {
     const child = 'Child'
     const grandchild = 'Grandchild'
     const getNormalizedObject = () => ({
-      0: buildObject({ text: parent, childIds: [1] }),
-      1: buildObject({ text: child, childIds: [2], parentId: 0 }),
-      2: buildObject({ text: grandchild, parentId: 1 })
+      0: createNode({ text: parent, childIds: [1] }),
+      1: createNode({ text: child, childIds: [2], parentId: 0 }),
+      2: createNode({ text: grandchild, parentId: 1 })
     })
 
     test('It should render all texts as provided', () => {
