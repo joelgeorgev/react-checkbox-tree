@@ -1,6 +1,6 @@
 import { normalize } from '.'
 
-describe('normalize tests', () => {
+describe('normalize', () => {
   const createNode = (params) => ({
     childIds: [],
     parentId: undefined,

@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '.'
 
-describe('Checkbox tests', () => {
+describe('Checkbox', () => {
   const createNode = (params) => ({
     childIds: [],
     parentId: undefined,
@@ -19,7 +19,7 @@ describe('Checkbox tests', () => {
       0: createNode({ text })
     })
 
-    test('It should render text as provided', () => {
+    test('should render text as provided', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )
@@ -27,7 +27,7 @@ describe('Checkbox tests', () => {
       expect(getByLabelText(text)).toBeDefined()
     })
 
-    test('It should render checkbox as provided', () => {
+    test('should render checkbox as provided', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )
@@ -35,7 +35,7 @@ describe('Checkbox tests', () => {
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('It should invoke callback function when clicked', () => {
+    test('should invoke callback function when clicked', () => {
       const props = createProps({ nodes: getNormalizedObject() })
       const { onToggle } = props
       const { getByLabelText } = render(<Checkbox {...props} />)
@@ -57,7 +57,7 @@ describe('Checkbox tests', () => {
       2: createNode({ text: grandchild, parentId: 1 })
     })
 
-    test('It should render all texts as provided', () => {
+    test('should render all texts as provided', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )

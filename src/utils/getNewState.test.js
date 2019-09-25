@@ -1,6 +1,6 @@
 import { getNewState } from '.'
 
-describe('getNewState tests', () => {
+describe('getNewState', () => {
   describe('When provided with', () => {
     const createNode = (params) => ({
       childIds: [],
@@ -85,7 +85,7 @@ describe('getNewState tests', () => {
       ]
     ]
     test.each(cases)(
-      'a state %o and an id %i, it should return %o',
+      'a state %o and an id %i, it should return a new state %o',
       (state, id, newState) => {
         expect(getNewState({ state, id })).toEqual(newState)
       }
