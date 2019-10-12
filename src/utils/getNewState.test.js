@@ -1,7 +1,7 @@
 import { getNewState } from '.'
 
 describe('getNewState', () => {
-  describe('When given a state and an id like', () => {
+  describe('When given a state and an id', () => {
     const createNode = (params) => ({
       childIds: [],
       parentId: undefined,
@@ -84,11 +84,8 @@ describe('getNewState', () => {
         }
       ]
     ]
-    test.each(cases)(
-      '%o and %i, it should return a new state %o',
-      (state, id, newState) => {
-        expect(getNewState({ state, id })).toEqual(newState)
-      }
-    )
+    test.each(cases)('returns a new state', (state, id, newState) => {
+      expect(getNewState({ state, id })).toEqual(newState)
+    })
   })
 })

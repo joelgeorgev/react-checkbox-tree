@@ -19,7 +19,7 @@ describe('Checkbox', () => {
       0: createNode({ text })
     })
 
-    test('should render text as provided', () => {
+    test('renders text', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )
@@ -27,7 +27,7 @@ describe('Checkbox', () => {
       expect(getByLabelText(text)).toBeDefined()
     })
 
-    test('should render checkbox as provided', () => {
+    test('renders checkbox', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )
@@ -35,7 +35,7 @@ describe('Checkbox', () => {
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('should invoke callback function when clicked', () => {
+    test('invokes callback function when clicked', () => {
       const props = createProps({ nodes: getNormalizedObject() })
       const { onToggle } = props
       const { getByLabelText } = render(<Checkbox {...props} />)
@@ -57,7 +57,7 @@ describe('Checkbox', () => {
       2: createNode({ text: grandchild, parentId: 1 })
     })
 
-    test('should render all texts as provided', () => {
+    test('renders all texts', () => {
       const { getByLabelText } = render(
         <Checkbox {...createProps({ nodes: getNormalizedObject() })} />
       )
@@ -70,7 +70,7 @@ describe('Checkbox', () => {
     describe('When clicked', () => {
       const cases = [[grandchild, 2], [child, 1], [parent, 0]]
       test.each(cases)(
-        'on "%s", it should invoke callback function with %i',
+        'on "%s", invokes callback function with %i',
         (text, id) => {
           const props = createProps({ nodes: getNormalizedObject() })
           const { onToggle } = props

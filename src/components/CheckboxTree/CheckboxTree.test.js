@@ -10,7 +10,7 @@ describe('CheckboxTree', () => {
     const text = 'Hello World'
     const getNonRecursiveObject = () => ({ text, checked: false })
 
-    test('should render text as provided', () => {
+    test('renders text', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getNonRecursiveObject())} />
       )
@@ -18,7 +18,7 @@ describe('CheckboxTree', () => {
       expect(getByLabelText(text)).toBeDefined()
     })
 
-    test('should render checkbox as provided', () => {
+    test('renders checkbox', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getNonRecursiveObject())} />
       )
@@ -26,7 +26,7 @@ describe('CheckboxTree', () => {
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('should toggle checkbox when clicked', () => {
+    test('toggles checkbox when clicked', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getNonRecursiveObject())} />
       )
@@ -58,7 +58,7 @@ describe('CheckboxTree', () => {
       ]
     })
 
-    test('should render all texts as provided', () => {
+    test('renders all texts', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getRecursiveObject())} />
       )
@@ -68,7 +68,7 @@ describe('CheckboxTree', () => {
       expect(getByLabelText(grandchild)).toBeDefined()
     })
 
-    test('should toggle all checkboxes down recursively', () => {
+    test('toggles all checkboxes down recursively', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getRecursiveObject())} />
       )
@@ -80,7 +80,7 @@ describe('CheckboxTree', () => {
       expect(getByLabelText(grandchild).checked).toEqual(true)
     })
 
-    test('should toggle all checkboxes up recursively', () => {
+    test('toggles all checkboxes up recursively', () => {
       const { getByLabelText } = render(
         <CheckboxTree data={createProps(getRecursiveObject())} />
       )
