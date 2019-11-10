@@ -3,11 +3,11 @@ import { render } from '@testing-library/react'
 
 import { Intro } from '.'
 
-describe('Intro', () => {
-  const getTitle = (node) => node.querySelector('h3').textContent
-  const getDescription = (node) => node.querySelector('p').textContent
-  const getGitHubURL = (node) => node.querySelector('a').href
+const getTitle = (node) => node.querySelector('h3').textContent
+const getDescription = (node) => node.querySelector('p').textContent
+const getGitHubURL = (node) => node.querySelector('a').href
 
+describe('Intro', () => {
   test('renders a title', () => {
     const { container } = render(<Intro />)
     expect(getTitle(container)).toEqual('React Checkbox Tree')

@@ -1,12 +1,12 @@
 import { normalize } from '.'
 
-describe('normalize', () => {
-  const createNode = (params) => ({
-    childIds: [],
-    parentId: undefined,
-    ...params
-  })
+const createNode = (params) => ({
+  childIds: [],
+  parentId: undefined,
+  ...params
+})
 
+describe('normalize', () => {
   describe('When given an object with a recursive structure', () => {
     const cases = [
       [
