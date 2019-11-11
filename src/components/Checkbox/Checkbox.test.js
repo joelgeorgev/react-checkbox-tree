@@ -11,6 +11,7 @@ const createNode = (params) => ({
 })
 
 const createDefaultProps = () => ({ id: 0, onToggle: jest.fn() })
+
 const createProps = (normalizedObject) => ({
   ...createDefaultProps(),
   nodes: normalizedObject
