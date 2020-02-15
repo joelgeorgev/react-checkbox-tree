@@ -1,13 +1,13 @@
 import { normalize } from '.'
 
-const createNode = (params) => ({
+const createNode = (overrides) => ({
   childIds: [],
   parentId: undefined,
-  ...params
+  ...overrides
 })
 
 describe('normalize', () => {
-  describe('When given an object with a recursive structure', () => {
+  describe('Given an object with a recursive structure', () => {
     const cases = [
       [
         { text: 'Parent' },

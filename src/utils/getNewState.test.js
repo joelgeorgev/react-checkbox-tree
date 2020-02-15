@@ -1,10 +1,10 @@
 import { getNewState } from '.'
 
-const createNode = (params) => ({
+const createNode = (overrides) => ({
   childIds: [],
   parentId: undefined,
   checked: false,
-  ...params
+  ...overrides
 })
 
 const createParent = () => createNode({ childIds: [1, 2] })
@@ -13,7 +13,7 @@ const createSecondChild = () => createNode({ parentId: 0 })
 const createGrandChild = () => createNode({ parentId: 1 })
 
 describe('getNewState', () => {
-  describe('When given a state and an id', () => {
+  describe('Given a state and an id', () => {
     const cases = [
       [
         // Check node

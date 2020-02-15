@@ -3,18 +3,19 @@ import { render, fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '.'
 
-const createNode = (params) => ({
+const createDefaultProps = () => ({
+  id: 0,
+  onToggle: () => {}
+})
+
+const renderCheckbox = (props) =>
+  render(<Checkbox {...createDefaultProps()} {...props} />)
+
+const createNode = (overrides) => ({
   childIds: [],
   parentId: undefined,
   checked: false,
-  ...params
-})
-
-const createDefaultProps = () => ({ id: 0, onToggle: jest.fn() })
-
-const createProps = (normalizedObject) => ({
-  ...createDefaultProps(),
-  nodes: normalizedObject
+  ...overrides
 })
 
 const text = 'Hello World'
@@ -32,27 +33,29 @@ const createMultiLevelNormalizedObject = () => ({
 })
 
 describe('Checkbox', () => {
-  describe('When given a single level normalized object', () => {
-    test('renders text', () => {
-      const { getByLabelText } = render(
-        <Checkbox {...createProps(createSingleLevelNormalizedObject())} />
-      )
+  describe('Given a single level normalized object', () => {
+    test('renders a text', () => {
+      const { getByLabelText } = renderCheckbox({
+        nodes: createSingleLevelNormalizedObject()
+      })
 
       expect(getByLabelText(text)).toBeDefined()
     })
 
-    test('renders checkbox', () => {
-      const { getByLabelText } = render(
-        <Checkbox {...createProps(createSingleLevelNormalizedObject())} />
-      )
+    test('renders a checkbox', () => {
+      const { getByLabelText } = renderCheckbox({
+        nodes: createSingleLevelNormalizedObject()
+      })
 
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('invokes callback function when clicked', () => {
-      const props = createProps(createSingleLevelNormalizedObject())
-      const { onToggle } = props
-      const { getByLabelText } = render(<Checkbox {...props} />)
+    test('invokes the callback function on click', () => {
+      const onToggle = jest.fn()
+      const { getByLabelText } = renderCheckbox({
+        nodes: createSingleLevelNormalizedObject(),
+        onToggle
+      })
 
       fireEvent.click(getByLabelText(text))
 
@@ -61,11 +64,11 @@ describe('Checkbox', () => {
     })
   })
 
-  describe('When given a multi level normalized object', () => {
+  describe('Given a multi level normalized object', () => {
     test('renders all texts', () => {
-      const { getByLabelText } = render(
-        <Checkbox {...createProps(createMultiLevelNormalizedObject())} />
-      )
+      const { getByLabelText } = renderCheckbox({
+        nodes: createMultiLevelNormalizedObject()
+      })
 
       expect(getByLabelText(parent)).toBeDefined()
       expect(getByLabelText(child)).toBeDefined()
@@ -79,11 +82,13 @@ describe('Checkbox', () => {
         [parent, 0]
       ]
       test.each(cases)(
-        'on "%s", invokes callback function with %i',
+        'on "%s", invokes the callback function with %i',
         (text, id) => {
-          const props = createProps(createMultiLevelNormalizedObject())
-          const { onToggle } = props
-          const { getByLabelText } = render(<Checkbox {...props} />)
+          const onToggle = jest.fn()
+          const { getByLabelText } = renderCheckbox({
+            nodes: createMultiLevelNormalizedObject(),
+            onToggle
+          })
 
           fireEvent.click(getByLabelText(text))
 

@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
 
-const createProps = (data) => ({ data })
+const renderCheckboxTree = (props) => render(<CheckboxTree {...props} />)
 
 const text = 'Hello World'
 const createNonRecursiveObject = () => ({ text, checked: false })
@@ -29,27 +29,27 @@ const createRecursiveObject = () => ({
 })
 
 describe('CheckboxTree', () => {
-  describe('When given a non-recursive object', () => {
-    test('renders text', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createNonRecursiveObject())} />
-      )
+  describe('Given a non-recursive object', () => {
+    test('renders a text', () => {
+      const { getByLabelText } = renderCheckboxTree({
+        data: createNonRecursiveObject()
+      })
 
       expect(getByLabelText(text)).toBeDefined()
     })
 
-    test('renders checkbox', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createNonRecursiveObject())} />
-      )
+    test('renders a checkbox', () => {
+      const { getByLabelText } = renderCheckboxTree({
+        data: createNonRecursiveObject()
+      })
 
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('toggles checkbox when clicked', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createNonRecursiveObject())} />
-      )
+    test('toggles the checkbox', () => {
+      const { getByLabelText } = renderCheckboxTree({
+        data: createNonRecursiveObject()
+      })
 
       fireEvent.click(getByLabelText(text))
 
@@ -57,11 +57,11 @@ describe('CheckboxTree', () => {
     })
   })
 
-  describe('When given a recursive object', () => {
+  describe('Given a recursive object', () => {
     test('renders all texts', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createRecursiveObject())} />
-      )
+      const { getByLabelText } = renderCheckboxTree({
+        data: createRecursiveObject()
+      })
 
       expect(getByLabelText(parent)).toBeDefined()
       expect(getByLabelText(child)).toBeDefined()
@@ -69,9 +69,9 @@ describe('CheckboxTree', () => {
     })
 
     test('toggles all checkboxes down recursively', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createRecursiveObject())} />
-      )
+      const { getByLabelText } = renderCheckboxTree({
+        data: createRecursiveObject()
+      })
 
       fireEvent.click(getByLabelText(parent))
 
@@ -81,9 +81,9 @@ describe('CheckboxTree', () => {
     })
 
     test('toggles all checkboxes up recursively', () => {
-      const { getByLabelText } = render(
-        <CheckboxTree {...createProps(createRecursiveObject())} />
-      )
+      const { getByLabelText } = renderCheckboxTree({
+        data: createRecursiveObject()
+      })
 
       fireEvent.click(getByLabelText(grandchild))
 
