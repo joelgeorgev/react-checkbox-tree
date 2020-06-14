@@ -1,6 +1,6 @@
 # React Checkbox Tree
 
-[![Build Status](https://travis-ci.org/joelgeorgev/react-checkbox-tree.svg?branch=master)](https://travis-ci.org/joelgeorgev/react-checkbox-tree)
+![CI](https://github.com/joelgeorgev/react-checkbox-tree/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/joelgeorgev/react-checkbox-tree/badge.svg?branch=master)](https://coveralls.io/github/joelgeorgev/react-checkbox-tree?branch=master)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
