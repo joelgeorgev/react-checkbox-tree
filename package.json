@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "pretest": "prettier --check \"./**/*.{js,json,md}\"",
+    "format": "prettier --check \"./**/*.{js,json,md}\"",
     "test": "react-scripts test --env=jsdom",
     "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
