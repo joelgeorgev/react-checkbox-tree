@@ -22,8 +22,7 @@
     "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
