@@ -1,4 +1,4 @@
-export const getNewState = ({ id, state }) => {
+export const getNewState = (state, id) => {
   const toggleNode = ({ node, checked }) => ({ ...node, checked })
 
   const toggleSelfandChildren = ({ id, nodes, checked }) => {

@@ -12,7 +12,7 @@ export const CheckboxTree = ({ data }) => {
   const [nodes, setNodes] = useState(normalize({ data }))
 
   const toggleCheckbox = (id) => {
-    setNodes((prevNodes) => getNewState({ id, state: prevNodes }))
+    setNodes((prevNodes) => getNewState(prevNodes, id))
   }
 
   return (

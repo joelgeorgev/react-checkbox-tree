@@ -84,12 +84,12 @@ describe('getNewState', () => {
         3: createSecondChild({ checked: true })
       }
     }
-  ].forEach(({ prevState: state, id, newState: expectedState }) => {
+  ].forEach(({ prevState, id, newState: expectedState }) => {
     describe('Given a state and an id', () => {
       let newState
 
       beforeEach(() => {
-        newState = getNewState({ state, id })
+        newState = getNewState(prevState, id)
       })
 
       test('returns a new state', () => {
