@@ -7,43 +7,50 @@ const createNode = (overrides) => ({
 })
 
 describe('normalize', () => {
-  describe('Given an object with a recursive structure', () => {
-    const cases = [
-      [
-        { text: 'Parent' },
-        {
-          0: createNode({ text: 'Parent' })
-        }
-      ],
-      [
-        {
-          text: 'Parent',
-          children: [{ text: 'Child' }]
-        },
-        {
-          0: createNode({ text: 'Parent', childIds: [1] }),
-          1: createNode({ text: 'Child', parentId: 0 })
-        }
-      ],
-      [
-        {
-          text: 'Parent',
-          children: [
-            {
-              text: 'Child',
-              children: [{ text: 'Grandchild' }]
-            }
-          ]
-        },
-        {
-          0: createNode({ text: 'Parent', childIds: [1] }),
-          1: createNode({ text: 'Child', childIds: [2], parentId: 0 }),
-          2: createNode({ text: 'Grandchild', parentId: 1 })
-        }
-      ]
-    ]
-    test.each(cases)('returns a normalized object', (actual, expected) => {
-      expect(normalize({ data: actual })).toEqual(expected)
+  ;[
+    {
+      recursiveObject: { text: 'Parent' },
+      normalizedObject: {
+        0: createNode({ text: 'Parent' })
+      }
+    },
+    {
+      recursiveObject: {
+        text: 'Parent',
+        children: [{ text: 'Child' }]
+      },
+      normalizedObject: {
+        0: createNode({ text: 'Parent', childIds: [1] }),
+        1: createNode({ text: 'Child', parentId: 0 })
+      }
+    },
+    {
+      recursiveObject: {
+        text: 'Parent',
+        children: [
+          {
+            text: 'Child',
+            children: [{ text: 'Grandchild' }]
+          }
+        ]
+      },
+      normalizedObject: {
+        0: createNode({ text: 'Parent', childIds: [1] }),
+        1: createNode({ text: 'Child', childIds: [2], parentId: 0 }),
+        2: createNode({ text: 'Grandchild', parentId: 1 })
+      }
+    }
+  ].forEach(({ recursiveObject, normalizedObject: expected }) => {
+    describe('Given an object with a recursive structure', () => {
+      let normalizedObject
+
+      beforeEach(() => {
+        normalizedObject = normalize({ data: recursiveObject })
+      })
+
+      test('returns a normalized object', () => {
+        expect(normalizedObject).toEqual(expected)
+      })
     })
   })
 })
