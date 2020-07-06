@@ -1,4 +1,4 @@
-export const normalize = ({ data, recursionKey = 'children' }) => {
+export const normalize = (data, recursionKey = 'children') => {
   let normalizedData = {}
   let counter = -1
 

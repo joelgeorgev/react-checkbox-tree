@@ -9,7 +9,7 @@ const List = styled.ul`
 `
 
 export const CheckboxTree = ({ data }) => {
-  const [nodes, setNodes] = useState(normalize({ data }))
+  const [nodes, setNodes] = useState(normalize(data))
 
   const toggleCheckbox = (id) => {
     setNodes((prevNodes) => getNewState(prevNodes, id))

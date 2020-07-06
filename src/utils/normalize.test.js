@@ -45,7 +45,7 @@ describe('normalize', () => {
       let normalizedObject
 
       beforeEach(() => {
-        normalizedObject = normalize({ data: recursiveObject })
+        normalizedObject = normalize(recursiveObject)
       })
 
       test('returns a normalized object', () => {
