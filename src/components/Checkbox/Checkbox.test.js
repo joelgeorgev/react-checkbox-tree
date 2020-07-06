@@ -74,28 +74,37 @@ describe('Checkbox', () => {
       expect(getByLabelText(child)).toBeDefined()
       expect(getByLabelText(grandchild)).toBeDefined()
     })
+    ;[
+      {
+        text: grandchild,
+        id: 2
+      },
+      {
+        text: child,
+        id: 1
+      },
+      {
+        text: parent,
+        id: 0
+      }
+    ].forEach(({ text, id }) => {
+      describe(`When clicked on ${text}`, () => {
+        let onToggle = jest.fn()
 
-    describe('When clicked', () => {
-      const cases = [
-        [grandchild, 2],
-        [child, 1],
-        [parent, 0]
-      ]
-      test.each(cases)(
-        'on "%s", invokes the callback function with %i',
-        (text, id) => {
-          const onToggle = jest.fn()
+        beforeEach(() => {
           const { getByLabelText } = renderCheckbox({
             nodes: createMultiLevelNormalizedObject(),
             onToggle
           })
 
           fireEvent.click(getByLabelText(text))
+        })
 
+        test(`invokes the callback function with ${id}`, () => {
           expect(onToggle).toHaveBeenCalledTimes(1)
           expect(onToggle).toHaveBeenCalledWith(id)
-        }
-      )
+        })
+      })
     })
   })
 })
