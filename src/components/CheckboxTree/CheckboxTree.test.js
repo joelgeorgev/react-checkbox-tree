@@ -6,11 +6,13 @@ import { CheckboxTree } from '.'
 const renderCheckboxTree = (props) => render(<CheckboxTree {...props} />)
 
 const text = 'Hello World'
+
 const createNonRecursiveObject = () => ({ text, checked: false })
 
 const parent = 'Parent'
 const child = 'Child'
 const grandchild = 'Grandchild'
+
 const createRecursiveObject = () => ({
   text: parent,
   checked: false,

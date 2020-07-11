@@ -19,6 +19,7 @@ const createNode = (overrides) => ({
 })
 
 const text = 'Hello World'
+
 const createSingleLevelNormalizedObject = () => ({
   0: createNode({ text })
 })
@@ -26,6 +27,7 @@ const createSingleLevelNormalizedObject = () => ({
 const parent = 'Parent'
 const child = 'Child'
 const grandchild = 'Grandchild'
+
 const createMultiLevelNormalizedObject = () => ({
   0: createNode({ text: parent, childIds: [1] }),
   1: createNode({ text: child, childIds: [2], parentId: 0 }),
@@ -50,17 +52,19 @@ describe('Checkbox', () => {
       expect(getByLabelText(text).checked).toEqual(false)
     })
 
-    test('invokes the callback function on click', () => {
-      const onToggle = jest.fn()
-      const { getByLabelText } = renderCheckbox({
-        nodes: createSingleLevelNormalizedObject(),
-        onToggle
+    describe('When clicked on', () => {
+      test('invokes the callback function', () => {
+        const onToggle = jest.fn()
+        const { getByLabelText } = renderCheckbox({
+          nodes: createSingleLevelNormalizedObject(),
+          onToggle
+        })
+
+        fireEvent.click(getByLabelText(text))
+
+        expect(onToggle).toHaveBeenCalledTimes(1)
+        expect(onToggle).toHaveBeenCalledWith(0)
       })
-
-      fireEvent.click(getByLabelText(text))
-
-      expect(onToggle).toHaveBeenCalledTimes(1)
-      expect(onToggle).toHaveBeenCalledWith(0)
     })
   })
 
