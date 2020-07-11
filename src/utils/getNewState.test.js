@@ -85,7 +85,7 @@ describe('getNewState', () => {
       }
     }
   ].forEach(({ prevState, id, newState: expected }) => {
-    describe('Given a state and an id', () => {
+    describe('Given a state AND an id', () => {
       let newState
 
       beforeEach(() => {
