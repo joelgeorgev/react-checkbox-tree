@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/react-checkbox-tree/static/js/main.48eb4b0b.chunk.js",
-    "main.js.map": "/react-checkbox-tree/static/js/main.48eb4b0b.chunk.js.map",
+    "main.js": "/react-checkbox-tree/static/js/main.4c62cce9.chunk.js",
+    "main.js.map": "/react-checkbox-tree/static/js/main.4c62cce9.chunk.js.map",
     "runtime-main.js": "/react-checkbox-tree/static/js/runtime-main.af7a540f.js",
     "runtime-main.js.map": "/react-checkbox-tree/static/js/runtime-main.af7a540f.js.map",
     "static/js/2.ce1a555c.chunk.js": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js",
     "static/js/2.ce1a555c.chunk.js.map": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js.map",
     "index.html": "/react-checkbox-tree/index.html",
-    "precache-manifest.11c3dd09a41ff2239754ad5b5d24e153.js": "/react-checkbox-tree/precache-manifest.11c3dd09a41ff2239754ad5b5d24e153.js",
+    "precache-manifest.4064c7857db58f007c6d6f51ba0639f5.js": "/react-checkbox-tree/precache-manifest.4064c7857db58f007c6d6f51ba0639f5.js",
     "service-worker.js": "/react-checkbox-tree/service-worker.js",
     "static/js/2.ce1a555c.chunk.js.LICENSE.txt": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js.LICENSE.txt",
     "static/media/github.svg": "/react-checkbox-tree/static/media/github.dc6635a4.svg",
@@ -17,6 +17,6 @@
   "entrypoints": [
     "static/js/runtime-main.af7a540f.js",
     "static/js/2.ce1a555c.chunk.js",
-    "static/js/main.48eb4b0b.chunk.js"
+    "static/js/main.4c62cce9.chunk.js"
   ]
 }
