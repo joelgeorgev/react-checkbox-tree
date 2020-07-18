@@ -1,8 +1,8 @@
 import React from 'react'
 
 export const Intro = () => (
-  <div>
-    <h3>React Checkbox Tree</h3>
+  <>
+    <h2>React Checkbox Tree</h2>
     <p>
       A react app showcasing a simple checkbox tree component. This project was
       created using{' '}
@@ -11,5 +11,5 @@ export const Intro = () => (
       </a>
       .
     </p>
-  </div>
+  </>
 )

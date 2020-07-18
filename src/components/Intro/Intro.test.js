@@ -1,33 +1,34 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 
 import { Intro } from '.'
 
 const renderIntro = () => render(<Intro />)
 
-const getTitle = (node) => node.querySelector('h3').textContent
-const getDescription = (node) => node.querySelector('p').textContent
-const getGitHubURL = (node) => node.querySelector('a').href
-
 describe('Intro', () => {
-  test('renders a title', () => {
-    const { container } = renderIntro()
+  test('renders a header', () => {
+    renderIntro()
 
-    expect(getTitle(container)).toEqual('React Checkbox Tree')
+    expect(
+      screen.getByRole('heading', { name: 'React Checkbox Tree' })
+    ).toBeDefined()
   })
 
   test('renders a description', () => {
     const { container } = renderIntro()
 
-    expect(getDescription(container)).toEqual(
+    expect(container.querySelector('p').textContent).toEqual(
       'A react app showcasing a simple checkbox tree component. This project was created using create-react-app.'
     )
   })
 
-  test('renders the correct GitHub URL for create-react-app', () => {
-    const { container } = renderIntro()
+  test('renders a link to create-react-app GitHub repository', () => {
+    renderIntro()
 
-    expect(getGitHubURL(container)).toEqual(
+    const link = screen.getByRole('link', { name: 'create-react-app' })
+
+    expect(link).toBeDefined()
+    expect(link.href).toEqual(
       'https://github.com/facebookincubator/create-react-app'
     )
   })
