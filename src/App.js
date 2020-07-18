@@ -5,7 +5,7 @@ import { Intro, CheckboxTree } from './components'
 import data from './data/data.json'
 import github from './assets/github.svg'
 
-const Section = styled.section`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -14,31 +14,32 @@ const Section = styled.section`
   margin: 0 auto;
 `
 
-const Wrapper = styled.div`
+const Section = styled.section`
   display: flex;
   flex-direction: column;
   flex: 1;
-  margin-top: 2rem;
   overflow: auto;
 `
 
-const Footer = styled.div`
+const Footer = styled.footer`
   align-self: center;
   margin: 2rem;
 `
 
 export const App = () => (
-  <main>
+  <Main>
+    <header>
+      <Intro />
+    </header>
     <Section>
-      <Wrapper>
-        <Intro />
+      <article>
         <CheckboxTree data={data} />
-      </Wrapper>
-      <Footer>
-        <a href='https://github.com/joelgeorgev/react-checkbox-tree'>
-          <img src={github} alt='GitHub' />
-        </a>
-      </Footer>
+      </article>
     </Section>
-  </main>
+    <Footer>
+      <a href='https://github.com/joelgeorgev/react-checkbox-tree'>
+        <img src={github} alt='GitHub repository' />
+      </a>
+    </Footer>
+  </Main>
 )

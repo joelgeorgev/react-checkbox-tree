@@ -6,6 +6,7 @@ import { normalize, getNewState } from '../../utils'
 
 const List = styled.ul`
   list-style-type: none;
+  padding-left: 0;
 `
 
 export const CheckboxTree = ({ data }) => {
