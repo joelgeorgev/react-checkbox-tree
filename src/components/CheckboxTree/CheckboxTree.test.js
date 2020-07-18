@@ -1,13 +1,12 @@
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
 
-const renderCheckboxTree = (props) => render(<CheckboxTree {...props} />)
-
 const text = 'Hello World'
+const defaultChecked = false
 
-const createNonRecursiveObject = () => ({ text, checked: false })
+const createNonRecursiveObject = () => ({ text, checked: defaultChecked })
 
 const parent = 'Parent'
 const child = 'Child'
@@ -15,83 +14,79 @@ const grandchild = 'Grandchild'
 
 const createRecursiveObject = () => ({
   text: parent,
-  checked: false,
+  checked: defaultChecked,
   children: [
     {
       text: child,
-      checked: false,
+      checked: defaultChecked,
       children: [
         {
           text: grandchild,
-          checked: false
+          checked: defaultChecked
         }
       ]
     }
   ]
 })
 
+const renderCheckboxTree = (props) => render(<CheckboxTree {...props} />)
+
+const findCheckbox = (text) => screen.getByRole('checkbox', { name: text })
+
+const toggleCheckbox = (text) => fireEvent.click(findCheckbox(text))
+
+const assertCheckbox = (text, checked = defaultChecked) => {
+  const checkbox = findCheckbox(text)
+  expect(checkbox).toBeDefined()
+  expect(checkbox.checked).toEqual(checked)
+}
+
+const assertCheckboxChecked = (text) => assertCheckbox(text, true)
+
 describe('CheckboxTree', () => {
   describe('Given a non-recursive object', () => {
-    test('renders a text', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createNonRecursiveObject()
-      })
-
-      expect(getByLabelText(text)).toBeDefined()
-    })
-
     test('renders a checkbox', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createNonRecursiveObject()
-      })
+      renderCheckboxTree({ data: createNonRecursiveObject() })
 
-      expect(getByLabelText(text).checked).toEqual(false)
+      assertCheckbox(text)
     })
 
     test('toggles the checkbox', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createNonRecursiveObject()
-      })
+      renderCheckboxTree({ data: createNonRecursiveObject() })
 
-      fireEvent.click(getByLabelText(text))
+      toggleCheckbox(text)
 
-      expect(getByLabelText(text).checked).toEqual(true)
+      assertCheckboxChecked(text)
     })
   })
 
   describe('Given a recursive object', () => {
-    test('renders all texts', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createRecursiveObject()
-      })
+    test('renders all checkboxes', () => {
+      renderCheckboxTree({ data: createRecursiveObject() })
 
-      expect(getByLabelText(parent)).toBeDefined()
-      expect(getByLabelText(child)).toBeDefined()
-      expect(getByLabelText(grandchild)).toBeDefined()
+      assertCheckbox(parent)
+      assertCheckbox(child)
+      assertCheckbox(grandchild)
     })
 
     test('toggles all checkboxes down recursively', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createRecursiveObject()
-      })
+      renderCheckboxTree({ data: createRecursiveObject() })
 
-      fireEvent.click(getByLabelText(parent))
+      toggleCheckbox(parent)
 
-      expect(getByLabelText(parent).checked).toEqual(true)
-      expect(getByLabelText(child).checked).toEqual(true)
-      expect(getByLabelText(grandchild).checked).toEqual(true)
+      assertCheckboxChecked(parent)
+      assertCheckboxChecked(child)
+      assertCheckboxChecked(grandchild)
     })
 
     test('toggles all checkboxes up recursively', () => {
-      const { getByLabelText } = renderCheckboxTree({
-        data: createRecursiveObject()
-      })
+      renderCheckboxTree({ data: createRecursiveObject() })
 
-      fireEvent.click(getByLabelText(grandchild))
+      toggleCheckbox(grandchild)
 
-      expect(getByLabelText(parent).checked).toEqual(true)
-      expect(getByLabelText(child).checked).toEqual(true)
-      expect(getByLabelText(grandchild).checked).toEqual(true)
+      assertCheckboxChecked(parent)
+      assertCheckboxChecked(child)
+      assertCheckboxChecked(grandchild)
     })
   })
 })
