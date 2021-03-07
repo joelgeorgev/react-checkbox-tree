@@ -1,49 +1,56 @@
-export const getNewState = (state, id) => {
-  const toggleNode = ({ node, checked }) => ({ ...node, checked })
+const toggleNode = (node, checked) => ({ ...node, checked })
 
-  const toggleSelfandChildren = ({ id, nodes, checked }) => {
-    const node = nodes[id]
-    const { childIds } = node
+const toggleSelfAndChildren = (nodes, id, checked) => {
+  let newNodes = { ...nodes }
+  const currentNode = newNodes[id]
+  const { childIds } = currentNode
 
-    nodes[id] = toggleNode({ node: nodes[id], checked })
-    if (childIds.length) {
-      childIds.forEach((childId) => {
-        toggleSelfandChildren({ id: childId, nodes, checked })
-      })
-    }
+  newNodes[id] = toggleNode(currentNode, checked)
+
+  if (childIds.length) {
+    childIds.forEach((childId) => {
+      newNodes = toggleSelfAndChildren(newNodes, childId, checked)
+    })
   }
 
-  const toggleParent = ({ id, nodes }) => {
-    const areChildrenChecked = ({ id, nodes }) => {
-      const node = nodes[id]
-      const { childIds } = node
+  return newNodes
+}
 
-      return childIds.length
-        ? childIds.reduce(
-            (checkedAcc, childId) =>
-              checkedAcc && areChildrenChecked({ id: childId, nodes }),
-            true
-          )
-        : node.checked
-    }
+const areChildrenChecked = (nodes, id) => {
+  const currentNode = nodes[id]
+  const { checked, childIds } = currentNode
 
-    const parentId = nodes[id].parentId
-    if (!(parentId >= 0)) {
-      return
-    }
-    const parentNode = nodes[parentId]
-    const shouldToggleParent = areChildrenChecked({ id: parentId, nodes })
-    if (parentNode.checked !== shouldToggleParent) {
-      nodes[parentId] = toggleNode({
-        node: nodes[parentId],
-        checked: shouldToggleParent
-      })
-    }
-    toggleParent({ id: parentId, nodes })
+  return childIds.length
+    ? childIds.reduce(
+        (acc, childId) => acc && areChildrenChecked(nodes, childId),
+        true
+      )
+    : checked
+}
+
+const toggleParent = (nodes, id) => {
+  const parentId = nodes[id].parentId
+
+  if (parentId === undefined) {
+    return nodes
   }
 
-  const nodes = { ...state }
-  toggleSelfandChildren({ id, nodes, checked: !nodes[id].checked })
-  toggleParent({ id, nodes })
-  return nodes
+  let newNodes = { ...nodes }
+  const parentNode = newNodes[parentId]
+  const shouldToggleParent = areChildrenChecked(newNodes, parentId)
+
+  if (parentNode.checked !== shouldToggleParent) {
+    newNodes[parentId] = toggleNode(parentNode, shouldToggleParent)
+  }
+
+  return toggleParent(newNodes, parentId)
+}
+
+export const getNewState = (nodes, id) => {
+  let newNodes
+
+  newNodes = toggleSelfAndChildren(nodes, id, !nodes[id].checked)
+  newNodes = toggleParent(newNodes, id)
+
+  return newNodes
 }
