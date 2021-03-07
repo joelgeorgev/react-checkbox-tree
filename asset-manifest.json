@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.js": "/react-checkbox-tree/static/js/main.26a299b3.chunk.js",
-    "main.js.map": "/react-checkbox-tree/static/js/main.26a299b3.chunk.js.map",
-    "runtime-main.js": "/react-checkbox-tree/static/js/runtime-main.af7a540f.js",
-    "runtime-main.js.map": "/react-checkbox-tree/static/js/runtime-main.af7a540f.js.map",
-    "static/js/2.ce1a555c.chunk.js": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js",
-    "static/js/2.ce1a555c.chunk.js.map": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js.map",
+    "main.js": "/react-checkbox-tree/static/js/main.27095fb4.chunk.js",
+    "main.js.map": "/react-checkbox-tree/static/js/main.27095fb4.chunk.js.map",
+    "runtime-main.js": "/react-checkbox-tree/static/js/runtime-main.7aeed6cb.js",
+    "runtime-main.js.map": "/react-checkbox-tree/static/js/runtime-main.7aeed6cb.js.map",
+    "static/js/2.5956c0ee.chunk.js": "/react-checkbox-tree/static/js/2.5956c0ee.chunk.js",
+    "static/js/2.5956c0ee.chunk.js.map": "/react-checkbox-tree/static/js/2.5956c0ee.chunk.js.map",
     "index.html": "/react-checkbox-tree/index.html",
-    "precache-manifest.b8328d9fc12aaf39498f381dcac39305.js": "/react-checkbox-tree/precache-manifest.b8328d9fc12aaf39498f381dcac39305.js",
-    "service-worker.js": "/react-checkbox-tree/service-worker.js",
-    "static/js/2.ce1a555c.chunk.js.LICENSE.txt": "/react-checkbox-tree/static/js/2.ce1a555c.chunk.js.LICENSE.txt",
-    "static/media/github.svg": "/react-checkbox-tree/static/media/github.e626734b.svg",
-    "static/media/source-sans-pro-v11-latin-regular.woff2": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.76d8cbb0.woff2",
-    "static/media/source-sans-pro-v11-latin-regular.woff": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.f94f84eb.woff"
+    "static/js/2.5956c0ee.chunk.js.LICENSE.txt": "/react-checkbox-tree/static/js/2.5956c0ee.chunk.js.LICENSE.txt",
+    "static/media/github.66378707.svg": "/react-checkbox-tree/static/media/github.66378707.svg",
+    "static/media/source-sans-pro-v11-latin-regular.74ddb2b0.woff": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.74ddb2b0.woff",
+    "static/media/source-sans-pro-v11-latin-regular.96b15882.woff2": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.96b15882.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.af7a540f.js",
-    "static/js/2.ce1a555c.chunk.js",
-    "static/js/main.26a299b3.chunk.js"
+    "static/js/runtime-main.7aeed6cb.js",
+    "static/js/2.5956c0ee.chunk.js",
+    "static/js/main.27095fb4.chunk.js"
   ]
 }
