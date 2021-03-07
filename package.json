@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "A react app showcasing a simple checkbox tree component.",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "@testing-library/react": "^10.0.4",
+    "@testing-library/react": "^11.2.5",
     "coveralls": "^3.1.0",
-    "gh-pages": "^2.2.0",
+    "gh-pages": "^3.1.0",
     "prettier": "^2.0.5",
-    "react-scripts": "^3.4.1"
+    "react-scripts": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
