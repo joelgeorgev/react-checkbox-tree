@@ -78,36 +78,26 @@ describe('Checkbox', () => {
       assertCheckbox(child)
       assertCheckbox(grandchild)
     })
-    ;[
-      {
-        text: grandchild,
-        id: 2
-      },
-      {
-        text: child,
-        id: 1
-      },
-      {
-        text: parent,
-        id: 0
-      }
-    ].forEach(({ text, id }) => {
-      describe(`When clicked on ${text}`, () => {
-        let onToggle = jest.fn()
 
-        beforeEach(() => {
-          renderCheckbox({
-            nodes: createMultiLevelNormalizedObject(),
-            onToggle
-          })
+    describe.each([
+      [grandchild, 2],
+      [child, 1],
+      [parent, 0]
+    ])('When clicked on %s', (text, id) => {
+      let onToggle = jest.fn()
 
-          toggleCheckbox(text)
+      beforeEach(() => {
+        renderCheckbox({
+          nodes: createMultiLevelNormalizedObject(),
+          onToggle
         })
 
-        test(`invokes the callback function with ${id}`, () => {
-          expect(onToggle).toHaveBeenCalledTimes(1)
-          expect(onToggle).toHaveBeenCalledWith(id)
-        })
+        toggleCheckbox(text)
+      })
+
+      test(`invokes the callback function with ${id}`, () => {
+        expect(onToggle).toHaveBeenCalledTimes(1)
+        expect(onToggle).toHaveBeenCalledWith(id)
       })
     })
   })
