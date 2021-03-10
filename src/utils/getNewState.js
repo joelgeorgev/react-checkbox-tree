@@ -1,6 +1,6 @@
 const toggleNode = (node, checked) => ({ ...node, checked })
 
-const toggleSelfAndChildren = (nodes, id, checked) => {
+const toggleNodeAndChildren = (nodes, id, checked) => {
   let newNodes = { ...nodes }
   const currentNode = newNodes[id]
   const { childIds } = currentNode
@@ -9,7 +9,7 @@ const toggleSelfAndChildren = (nodes, id, checked) => {
 
   if (childIds.length) {
     childIds.forEach((childId) => {
-      newNodes = toggleSelfAndChildren(newNodes, childId, checked)
+      newNodes = toggleNodeAndChildren(newNodes, childId, checked)
     })
   }
 
@@ -49,7 +49,7 @@ const toggleParent = (nodes, id) => {
 export const getNewState = (nodes, id) => {
   let newNodes
 
-  newNodes = toggleSelfAndChildren(nodes, id, !nodes[id].checked)
+  newNodes = toggleNodeAndChildren(nodes, id, !nodes[id].checked)
   newNodes = toggleParent(newNodes, id)
 
   return newNodes
