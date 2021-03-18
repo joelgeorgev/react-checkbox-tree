@@ -1,23 +1,23 @@
-import { getNewState } from '.'
+import { getNewState, Node } from '.'
 
-const createNode = (overrides) => ({
+const createNode = (overrides?: Partial<Node>): Node => ({
   childIds: [],
   parentId: undefined,
   checked: false,
   ...overrides
 })
 
-const createParent = (overrides) =>
-  createNode({ childIds: [1, 2], ...overrides })
+const createParent = (overrides?: Partial<Node>): Node =>
+  createNode({ childIds: ['1', '2'], ...overrides })
 
-const createFirstChild = (overrides) =>
-  createNode({ childIds: [3], parentId: 0, ...overrides })
+const createFirstChild = (overrides?: Partial<Node>): Node =>
+  createNode({ childIds: ['3'], parentId: '0', ...overrides })
 
-const createSecondChild = (overrides) =>
-  createNode({ parentId: 0, ...overrides })
+const createSecondChild = (overrides?: Partial<Node>): Node =>
+  createNode({ parentId: '0', ...overrides })
 
-const createGrandChild = (overrides) =>
-  createNode({ parentId: 1, ...overrides })
+const createGrandChild = (overrides?: Partial<Node>): Node =>
+  createNode({ parentId: '1', ...overrides })
 
 describe('getNewState', () => {
   describe.each([
@@ -26,7 +26,7 @@ describe('getNewState', () => {
         prevState: {
           0: createNode()
         },
-        id: 0,
+        id: '0',
         newState: {
           0: createNode({ checked: true })
         }
@@ -37,7 +37,7 @@ describe('getNewState', () => {
         prevState: {
           0: createNode({ checked: true })
         },
-        id: 0,
+        id: '0',
         newState: {
           0: createNode()
         }
@@ -51,7 +51,7 @@ describe('getNewState', () => {
           2: createGrandChild(),
           3: createSecondChild()
         },
-        id: 3,
+        id: '3',
         newState: {
           0: createParent(),
           1: createFirstChild(),
@@ -68,7 +68,7 @@ describe('getNewState', () => {
           2: createGrandChild(),
           3: createSecondChild()
         },
-        id: 0,
+        id: '0',
         newState: {
           0: createParent({ checked: true }),
           1: createFirstChild({ checked: true }),
@@ -85,7 +85,7 @@ describe('getNewState', () => {
           2: createGrandChild(),
           3: createSecondChild({ checked: true })
         },
-        id: 2,
+        id: '2',
         newState: {
           0: createParent({ checked: true }),
           1: createFirstChild({ checked: true }),

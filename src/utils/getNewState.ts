@@ -1,5 +1,4 @@
-interface Node {
-  text: string;
+export interface Node {
   checked: boolean;
   childIds: string[];
   parentId?: string;

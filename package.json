@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.5",
+    "@types/jest": "^26.0.21",
     "coveralls": "^3.1.0",
     "gh-pages": "^3.1.0",
     "prettier": "^2.0.5",
