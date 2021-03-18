@@ -1,6 +1,17 @@
-const toggleNode = (node, checked) => ({ ...node, checked })
+interface Node {
+  text: string;
+  checked: boolean;
+  childIds: string[];
+  parentId?: string;
+}
 
-const toggleNodeAndChildren = (nodes, id, checked) => {
+interface Nodes {
+  [id: string]: Node;
+}
+
+const toggleNode = (node: Node, checked: boolean): Node => ({ ...node, checked })
+
+const toggleNodeAndChildren = (nodes: Nodes, id: string, checked: boolean): Nodes => {
   let newNodes = { ...nodes }
   const currentNode = newNodes[id]
   const { childIds } = currentNode
@@ -16,19 +27,19 @@ const toggleNodeAndChildren = (nodes, id, checked) => {
   return newNodes
 }
 
-const areChildrenChecked = (nodes, id) => {
+const areChildrenChecked = (nodes: Nodes, id: string): boolean => {
   const currentNode = nodes[id]
   const { checked, childIds } = currentNode
 
   return childIds.length
     ? childIds.reduce(
-        (acc, childId) => acc && areChildrenChecked(nodes, childId),
-        true
-      )
+      (acc: boolean, childId: string): boolean => acc && areChildrenChecked(nodes, childId),
+      true
+    )
     : checked
 }
 
-const toggleParent = (nodes, id) => {
+const toggleParent = (nodes: Nodes, id: string): Nodes => {
   const parentId = nodes[id].parentId
 
   if (parentId === undefined) {
@@ -46,7 +57,7 @@ const toggleParent = (nodes, id) => {
   return toggleParent(newNodes, parentId)
 }
 
-export const getNewState = (nodes, id) => {
+export const getNewState = (nodes: Nodes, id: string): Nodes => {
   let newNodes
 
   newNodes = toggleNodeAndChildren(nodes, id, !nodes[id].checked)
