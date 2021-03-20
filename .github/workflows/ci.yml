@@ -2,28 +2,31 @@ name: CI
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Check code formatting
-      run: npm run format
+      - name: Compile
+        run: npm run compile
 
-    - name: Run tests
-      run: npm test
+      - name: Check code formatting
+        run: npm run format
 
-    - name: Run coverage
-      run: npm run coverage
+      - name: Run tests
+        run: npm test
 
-    - name: Prepare coverage report
-      uses: coverallsapp/github-action@master
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run coverage
+        run: npm run coverage
+
+      - name: Prepare coverage report
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
