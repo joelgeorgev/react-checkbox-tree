@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { Nodes } from '../../utils'
+
 const List = styled.ul`
   list-style-type: none;
 `
@@ -10,7 +12,13 @@ const StyledCheckbox = styled.input`
   cursor: pointer;
 `
 
-export const Checkbox = ({ id, nodes, onToggle }) => {
+interface Props {
+  id: string;
+  nodes: Nodes;
+  onToggle(id: string): void;
+}
+
+export const Checkbox = ({ id, nodes, onToggle }: Props) => {
   const node = nodes[id]
   const { text, childIds, checked } = node
 

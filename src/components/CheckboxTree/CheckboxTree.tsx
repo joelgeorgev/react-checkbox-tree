@@ -22,7 +22,7 @@ export const CheckboxTree = ({ data }: Props) => {
 
   return (
     <List>
-      <Checkbox id={0} nodes={nodes} onToggle={toggleCheckbox} />
+      <Checkbox id={'0'} nodes={nodes} onToggle={toggleCheckbox} />
     </List>
   )
 }
