@@ -2,17 +2,21 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { Checkbox } from '..'
-import { normalize, getNewState } from '../../utils'
+import { normalize, getNewState, RecursiveData } from '../../utils'
 
 const List = styled.ul`
   list-style-type: none;
   padding-left: 0;
 `
 
-export const CheckboxTree = ({ data }) => {
+interface Props {
+  data: RecursiveData
+}
+
+export const CheckboxTree = ({ data }: Props) => {
   const [nodes, setNodes] = useState(normalize(data))
 
-  const toggleCheckbox = (id) => {
+  const toggleCheckbox = (id: string) => {
     setNodes((prevNodes) => getNewState(prevNodes, id))
   }
 
