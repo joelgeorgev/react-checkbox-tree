@@ -2,11 +2,13 @@
   "children": [
     {
       "text": "Name",
-      "checked": false
+      "checked": false,
+      "children": []
     },
     {
       "text": "Age",
-      "checked": false
+      "checked": false,
+      "children": []
     },
     {
       "text": "Contact",
@@ -18,17 +20,20 @@
           "children": [
             {
               "text": "Home",
-              "checked": false
+              "checked": false,
+              "children": []
             },
             {
               "text": "Work",
-              "checked": false
+              "checked": false,
+              "children": []
             }
           ]
         },
         {
           "text": "Mobile",
-          "checked": false
+          "checked": false,
+          "children": []
         }
       ]
     },
@@ -38,15 +43,18 @@
       "children": [
         {
           "text": "House",
-          "checked": false
+          "checked": false,
+          "children": []
         },
         {
           "text": "Road",
-          "checked": false
+          "checked": false,
+          "children": []
         },
         {
           "text": "Zip Code",
-          "checked": false
+          "checked": false,
+          "children": []
         }
       ]
     }

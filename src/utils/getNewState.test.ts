@@ -1,9 +1,10 @@
 import { getNewState, Node } from '.'
 
 const createNode = (overrides?: Partial<Node>): Node => ({
+  text: '',
+  checked: false,
   childIds: [],
   parentId: undefined,
-  checked: false,
   ...overrides
 })
 

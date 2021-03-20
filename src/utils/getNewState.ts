@@ -1,12 +1,4 @@
-export interface Node {
-  checked: boolean;
-  childIds: string[];
-  parentId?: string;
-}
-
-interface Nodes {
-  [id: string]: Node;
-}
+import { Node, Nodes } from '.'
 
 const toggleNode = (node: Node, checked: boolean): Node => ({ ...node, checked })
 
