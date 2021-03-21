@@ -10,7 +10,7 @@ export const normalize = (data: RecursiveData): Nodes => {
     counter += 1
 
     const id = `${counter}`
-    const { [RECURSION_KEY]: exclude, text = '', checked = false } = node
+    const { text = '', checked = false } = node
 
     normalizedData[id] = {
       text,
