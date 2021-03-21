@@ -13,9 +13,9 @@ const StyledCheckbox = styled.input`
 `
 
 interface Props {
-  id: string;
-  nodes: Nodes;
-  onToggle(id: string): void;
+  id: string
+  nodes: Nodes
+  onToggle(id: string): void
 }
 
 export const Checkbox = ({ id, nodes, onToggle }: Props) => {

@@ -1,8 +1,15 @@
 import { Node, Nodes } from '.'
 
-const toggleNode = (node: Node, checked: boolean): Node => ({ ...node, checked })
+const toggleNode = (node: Node, checked: boolean): Node => ({
+  ...node,
+  checked
+})
 
-const toggleNodeAndChildren = (nodes: Nodes, id: string, checked: boolean): Nodes => {
+const toggleNodeAndChildren = (
+  nodes: Nodes,
+  id: string,
+  checked: boolean
+): Nodes => {
   let newNodes = { ...nodes }
   const currentNode = newNodes[id]
   const { childIds } = currentNode
@@ -24,9 +31,10 @@ const areChildrenChecked = (nodes: Nodes, id: string): boolean => {
 
   return childIds.length
     ? childIds.reduce(
-      (acc: boolean, childId: string): boolean => acc && areChildrenChecked(nodes, childId),
-      true
-    )
+        (acc: boolean, childId: string): boolean =>
+          acc && areChildrenChecked(nodes, childId),
+        true
+      )
     : checked
 }
 

@@ -1,6 +1,8 @@
 import { normalize, RecursiveData, Node } from '.'
 
-const createRecursiveObject = (overrides?: Partial<RecursiveData>): RecursiveData => ({
+const createRecursiveObject = (
+  overrides?: Partial<RecursiveData>
+): RecursiveData => ({
   text: '',
   checked: false,
   children: [],
