@@ -2,46 +2,55 @@ import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
+import { RecursiveData } from '../../utils'
+
+interface Props {
+  data: RecursiveData
+}
 
 const text = 'Hello World'
 const defaultChecked = false
 
-const createNonRecursiveObject = () => ({ text, checked: defaultChecked })
+const createDataObject = (
+  overrides?: Partial<RecursiveData>
+): RecursiveData => ({
+  text,
+  checked: defaultChecked,
+  children: [],
+  ...overrides
+})
+
+const createNonRecursiveObject = (): RecursiveData => createDataObject()
 
 const parent = 'Parent'
 const child = 'Child'
 const grandchild = 'Grandchild'
 
-const createRecursiveObject = () => ({
-  text: parent,
-  checked: defaultChecked,
-  children: [
-    {
-      text: child,
-      checked: defaultChecked,
-      children: [
-        {
-          text: grandchild,
-          checked: defaultChecked
-        }
-      ]
-    }
-  ]
-})
+const createRecursiveObject = (): RecursiveData =>
+  createDataObject({
+    text: parent,
+    children: [
+      createDataObject({
+        text: child,
+        children: [createDataObject({ text: grandchild })]
+      })
+    ]
+  })
 
-const renderCheckboxTree = (props) => render(<CheckboxTree {...props} />)
+const renderCheckboxTree = (props: Props) => render(<CheckboxTree {...props} />)
 
-const findCheckbox = (text) => screen.getByRole('checkbox', { name: text })
+const findCheckbox = (text: string) =>
+  screen.getByRole('checkbox', { name: text })
 
-const toggleCheckbox = (text) => fireEvent.click(findCheckbox(text))
+const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 
-const assertCheckbox = (text, checked = defaultChecked) => {
-  const checkbox = findCheckbox(text)
+const assertCheckbox = (text: string, checked = defaultChecked): void => {
+  const checkbox = findCheckbox(text) as HTMLInputElement
   expect(checkbox).toBeDefined()
   expect(checkbox.checked).toEqual(checked)
 }
 
-const assertCheckboxChecked = (text) => assertCheckbox(text, true)
+const assertCheckboxChecked = (text: string): void => assertCheckbox(text, true)
 
 describe('CheckboxTree', () => {
   describe('Given a non-recursive object', () => {
