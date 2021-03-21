@@ -17,7 +17,10 @@ describe('Intro', () => {
   test('renders a description', () => {
     const { container } = renderIntro()
 
-    expect(container.querySelector('p').textContent).toEqual(
+    const paragraph = container.querySelector('p') as HTMLParagraphElement
+
+    expect(paragraph).toBeDefined()
+    expect(paragraph.textContent).toEqual(
       'A react app showcasing a simple checkbox tree component. This project was created using create-react-app.'
     )
   })
@@ -25,7 +28,9 @@ describe('Intro', () => {
   test('renders a link to create-react-app GitHub repository', () => {
     renderIntro()
 
-    const link = screen.getByRole('link', { name: 'create-react-app' })
+    const link = screen.getByRole('link', {
+      name: 'create-react-app'
+    }) as HTMLLinkElement
 
     expect(link).toBeDefined()
     expect(link.href).toEqual(
