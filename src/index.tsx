@@ -5,7 +5,6 @@ import { createGlobalStyle } from 'styled-components'
 import { App } from './App'
 import woff2 from './fonts/source-sans-pro-v11-latin-regular.woff2'
 import woff from './fonts/source-sans-pro-v11-latin-regular.woff'
-import registerServiceWorker from './registerServiceWorker'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -42,4 +41,3 @@ ReactDOM.render(
   </>,
   document.getElementById('root')
 )
-registerServiceWorker()

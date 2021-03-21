@@ -34,8 +34,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
-      "!src/index.tsx",
-      "!src/registerServiceWorker.js"
+      "!src/index.tsx"
     ]
   },
   "repository": "https://github.com/joelgeorgev/react-checkbox-tree",
