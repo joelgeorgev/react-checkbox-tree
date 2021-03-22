@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Intro = () => (
   <>
     <h1>React Checkbox Tree</h1>
