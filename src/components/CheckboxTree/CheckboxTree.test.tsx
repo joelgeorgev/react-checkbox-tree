@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
-import { RecursiveData } from '../../utils'
+import { RecursiveData } from '../../types'
 
 interface Props {
   data: RecursiveData

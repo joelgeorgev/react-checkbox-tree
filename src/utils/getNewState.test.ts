@@ -1,4 +1,5 @@
-import { getNewState, Node } from '.'
+import { getNewState } from '.'
+import { Node } from '../types'
 
 const createNode = (overrides?: Partial<Node>): Node => ({
   text: '',

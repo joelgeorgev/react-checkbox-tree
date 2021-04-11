@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '.'
-import { Node, Nodes } from '../../utils'
+import { Node, Nodes } from '../../types'
 
 interface Props {
   id: string

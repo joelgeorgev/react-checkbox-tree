@@ -1,4 +1,5 @@
-import { normalize, RecursiveData, Node } from '.'
+import { normalize } from '.'
+import { RecursiveData, Node } from '../types'
 
 const createRecursiveObject = (
   overrides?: Partial<RecursiveData>

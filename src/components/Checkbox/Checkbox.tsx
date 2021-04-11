@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Nodes } from '../../utils'
+import { Nodes } from '../../types'
 
 const List = styled.ul`
   list-style-type: none;
