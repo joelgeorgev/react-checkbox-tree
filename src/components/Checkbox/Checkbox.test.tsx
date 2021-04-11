@@ -1,13 +1,10 @@
+import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '.'
 import { Node, Nodes } from '../../types'
 
-interface Props {
-  id: string
-  nodes: Nodes
-  onToggle(id: string): void
-}
+type Props = React.ComponentProps<typeof Checkbox>
 
 const defaultChecked = false
 

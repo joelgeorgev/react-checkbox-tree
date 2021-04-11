@@ -1,11 +1,10 @@
+import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
 import { RecursiveData } from '../../types'
 
-interface Props {
-  data: RecursiveData
-}
+type Props = React.ComponentProps<typeof CheckboxTree>
 
 const text = 'Hello World'
 const defaultChecked = false
