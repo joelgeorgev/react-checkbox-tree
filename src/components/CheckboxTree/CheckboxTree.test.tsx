@@ -37,8 +37,8 @@ const createRecursiveObject = (): RecursiveData =>
 
 const renderCheckboxTree = (props: Props) => render(<CheckboxTree {...props} />)
 
-const findCheckbox = (text: string) =>
-  screen.getByRole('checkbox', { name: text })
+const findCheckbox = (text: string): HTMLInputElement =>
+  screen.getByRole('checkbox', { name: text }) as HTMLInputElement
 
 const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 

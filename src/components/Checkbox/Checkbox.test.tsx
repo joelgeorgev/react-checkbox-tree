@@ -41,8 +41,8 @@ const createProps = (overrides?: Partial<Props>): Props => ({
 
 const renderCheckbox = (props: Props) => render(<Checkbox {...props} />)
 
-const findCheckbox = (text: string) =>
-  screen.getByRole('checkbox', { name: text })
+const findCheckbox = (text: string): HTMLInputElement =>
+  screen.getByRole('checkbox', { name: text }) as HTMLInputElement
 
 const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 
