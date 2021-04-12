@@ -1,10 +1,10 @@
-import React from 'react'
+import { ComponentProps } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { Checkbox } from '.'
 import { Node, Nodes } from '../../types'
 
-type Props = React.ComponentProps<typeof Checkbox>
+type Props = ComponentProps<typeof Checkbox>
 
 const defaultChecked = false
 
