@@ -48,6 +48,7 @@ const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 
 const assertCheckbox = (text: string): void => {
   const checkbox = findCheckbox(text) as HTMLInputElement
+
   expect(checkbox).toBeDefined()
   expect(checkbox.checked).toEqual(defaultChecked)
 }
@@ -94,9 +95,8 @@ describe('Checkbox', () => {
       [child, '1'],
       [parent, '0']
     ])('When clicked on %s', (text, id) => {
-      let onToggle = jest.fn()
-
-      beforeEach(() => {
+      test(`invokes the callback function with ${id}`, () => {
+        const onToggle = jest.fn()
         renderCheckbox(
           createProps({
             nodes: createMultiLevelNormalizedObject(),
@@ -105,9 +105,7 @@ describe('Checkbox', () => {
         )
 
         toggleCheckbox(text)
-      })
 
-      test(`invokes the callback function with ${id}`, () => {
         expect(onToggle).toHaveBeenCalledTimes(1)
         expect(onToggle).toHaveBeenCalledWith(id)
       })

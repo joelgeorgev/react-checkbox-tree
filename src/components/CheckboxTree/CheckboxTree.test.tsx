@@ -44,6 +44,7 @@ const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 
 const assertCheckbox = (text: string, checked = defaultChecked): void => {
   const checkbox = findCheckbox(text) as HTMLInputElement
+
   expect(checkbox).toBeDefined()
   expect(checkbox.checked).toEqual(checked)
 }
