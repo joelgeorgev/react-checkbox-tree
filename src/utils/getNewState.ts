@@ -1,6 +1,6 @@
 import { Node, Nodes } from '../types'
 
-const toggleNode = (node: Node, checked: boolean): Node => ({
+const toggleNode = (node: Node, checked: Node['checked']): Node => ({
   ...node,
   checked
 })
@@ -8,7 +8,7 @@ const toggleNode = (node: Node, checked: boolean): Node => ({
 const toggleNodeAndChildren = (
   nodes: Nodes,
   id: string,
-  checked: boolean
+  checked: Node['checked']
 ): Nodes => {
   let newNodes = { ...nodes }
   const currentNode = newNodes[id]

@@ -5,8 +5,8 @@ export interface RecursiveData {
 }
 
 export interface Node {
-  text: string
-  checked: boolean
+  text: RecursiveData['text']
+  checked: RecursiveData['checked']
   childIds: string[]
   parentId?: string
 }
