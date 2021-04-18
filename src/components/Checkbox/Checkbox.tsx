@@ -1,4 +1,4 @@
-import React from 'react'
+import { Fragment } from 'react'
 import styled from 'styled-components'
 
 import { Nodes } from '../../types'
@@ -25,7 +25,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
   const handleChange = () => onToggle(id)
 
   return (
-    <React.Fragment key={id}>
+    <Fragment key={id}>
       {text && (
         <li>
           <label>
@@ -52,6 +52,6 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
           </List>
         </li>
       ) : null}
-    </React.Fragment>
+    </Fragment>
   )
 }
