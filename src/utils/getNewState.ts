@@ -57,7 +57,7 @@ const toggleParent = (nodes: Nodes, id: string): Nodes => {
 }
 
 export const getNewState = (nodes: Nodes, id: string): Nodes => {
-  let newNodes
+  let newNodes: Nodes
 
   newNodes = toggleNodeAndChildren(nodes, id, !nodes[id].checked)
   newNodes = toggleParent(newNodes, id)
