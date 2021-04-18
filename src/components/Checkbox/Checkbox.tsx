@@ -22,8 +22,6 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
   const node = nodes[id]
   const { text, childIds, checked } = node
 
-  const handleChange = () => onToggle(id)
-
   return (
     <Fragment key={id}>
       {text && (
@@ -32,7 +30,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
             <StyledCheckbox
               type='checkbox'
               checked={checked}
-              onChange={handleChange}
+              onChange={() => onToggle(id)}
             />
             {text}
           </label>
