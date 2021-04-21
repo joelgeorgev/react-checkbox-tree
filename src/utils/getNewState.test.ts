@@ -1,5 +1,7 @@
 import { getNewState } from '.'
-import { Node } from '../types'
+
+type Nodes = ReturnType<typeof getNewState>
+type Node = Nodes[string]
 
 const createNode = (overrides?: Partial<Node>): Node => ({
   text: '',

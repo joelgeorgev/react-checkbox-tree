@@ -2,9 +2,9 @@ import { ComponentProps } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
-import { RecursiveData } from '../../types'
 
 type Props = ComponentProps<typeof CheckboxTree>
+type RecursiveData = Props['data']
 
 const text = 'Hello World'
 const defaultChecked = false

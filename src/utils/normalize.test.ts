@@ -1,5 +1,8 @@
 import { normalize } from '.'
-import { RecursiveData, Node } from '../types'
+
+type RecursiveData = Parameters<typeof normalize>[number]
+type Nodes = ReturnType<typeof normalize>
+type Node = Nodes[string]
 
 const createRecursiveObject = (
   overrides?: Partial<RecursiveData>
