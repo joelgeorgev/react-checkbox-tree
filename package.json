@@ -39,6 +39,7 @@
   },
   "repository": "https://github.com/joelgeorgev/react-checkbox-tree",
   "keywords": [
+    "typescript",
     "React",
     "reactjs",
     "checkbox",
