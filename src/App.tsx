@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import { Intro, CheckboxTree } from './components'
 import data from './data/data.json'
+
 import github from './assets/github.svg'
 
 const Main = styled.main`
