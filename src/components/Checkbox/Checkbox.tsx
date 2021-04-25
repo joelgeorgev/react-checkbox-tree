@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import styled from 'styled-components'
 
-import { Nodes } from '../../types'
+import type { Nodes } from '../../types'
 
 const List = styled.ul`
   list-style-type: none;

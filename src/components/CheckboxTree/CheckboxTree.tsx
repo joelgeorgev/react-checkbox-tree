@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Checkbox } from '..'
 import { normalize, getNewState } from '../../utils'
-import { Nodes, RecursiveData } from '../../types'
+import type { Nodes, RecursiveData } from '../../types'
 
 const List = styled.ul`
   list-style-type: none;

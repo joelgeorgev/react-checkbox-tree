@@ -1,4 +1,4 @@
-import { RecursiveData, Nodes } from '../types'
+import type { RecursiveData, Nodes } from '../types'
 
 const RECURSION_KEY = 'children'
 

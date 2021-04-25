@@ -1,4 +1,4 @@
-import { Node, Nodes } from '../types'
+import type { Node, Nodes } from '../types'
 
 const toggleNode = (node: Node, checked: Node['checked']): Node => ({
   ...node,
