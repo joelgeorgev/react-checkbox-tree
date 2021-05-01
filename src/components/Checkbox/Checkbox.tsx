@@ -36,7 +36,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
           </label>
         </li>
       )}
-      {childIds.length ? (
+      {childIds.length > 0 && (
         <li>
           <List>
             {childIds.map((childId) => (
@@ -49,7 +49,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
             ))}
           </List>
         </li>
-      ) : null}
+      )}
     </Fragment>
   )
 }
