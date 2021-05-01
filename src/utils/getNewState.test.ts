@@ -1,4 +1,4 @@
-import { getNewState } from '.'
+import { getNewState } from './getNewState'
 
 type Nodes = ReturnType<typeof getNewState>
 type Node = Nodes[string]

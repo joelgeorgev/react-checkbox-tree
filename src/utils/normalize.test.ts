@@ -1,4 +1,4 @@
-import { normalize } from '.'
+import { normalize } from './normalize'
 
 type RecursiveData = Parameters<typeof normalize>[number]
 type Nodes = ReturnType<typeof normalize>
