@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/react-checkbox-tree/static/js/main.7c31e66b.chunk.js",
-    "main.js.map": "/react-checkbox-tree/static/js/main.7c31e66b.chunk.js.map",
+    "main.js": "/react-checkbox-tree/static/js/main.80ac884f.chunk.js",
+    "main.js.map": "/react-checkbox-tree/static/js/main.80ac884f.chunk.js.map",
     "runtime-main.js": "/react-checkbox-tree/static/js/runtime-main.7aeed6cb.js",
     "runtime-main.js.map": "/react-checkbox-tree/static/js/runtime-main.7aeed6cb.js.map",
     "static/js/2.721ebf57.chunk.js": "/react-checkbox-tree/static/js/2.721ebf57.chunk.js",
@@ -15,6 +15,6 @@
   "entrypoints": [
     "static/js/runtime-main.7aeed6cb.js",
     "static/js/2.721ebf57.chunk.js",
-    "static/js/main.7c31e66b.chunk.js"
+    "static/js/main.80ac884f.chunk.js"
   ]
 }
