@@ -8,6 +8,8 @@ type Nodes = Props['nodes']
 type Node = Nodes[string]
 type OnToggle = Props['onToggle']
 
+const createOnToggle = (): jest.MockedFunction<OnToggle> => jest.fn()
+
 const defaultChecked = false
 
 const createNode = (overrides?: Partial<Node>): Node => ({
@@ -67,7 +69,7 @@ describe('Checkbox', () => {
 
     describe('When clicked on', () => {
       test('invokes the callback function', () => {
-        const onToggle: jest.MockedFunction<OnToggle> = jest.fn()
+        const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
             nodes: createSingleLevelNormalizedObject(),
@@ -98,7 +100,7 @@ describe('Checkbox', () => {
       [parent, '0']
     ])('When clicked on %s', (text, id) => {
       test(`invokes the callback function with ${id}`, () => {
-        const onToggle: jest.MockedFunction<OnToggle> = jest.fn()
+        const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
             nodes: createMultiLevelNormalizedObject(),
