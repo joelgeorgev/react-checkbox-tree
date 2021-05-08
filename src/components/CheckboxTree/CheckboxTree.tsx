@@ -17,7 +17,7 @@ interface Props {
 export const CheckboxTree = ({ data }: Props) => {
   const [nodes, setNodes] = useState<Nodes>(normalize(data))
 
-  const toggleCheckbox = (id: string) => {
+  const toggleCheckbox = (id: string): void => {
     setNodes((prevNodes) => getNewState(prevNodes, id))
   }
 

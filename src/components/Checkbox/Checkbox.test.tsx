@@ -6,6 +6,7 @@ import { Checkbox } from '.'
 type Props = ComponentProps<typeof Checkbox>
 type Nodes = Props['nodes']
 type Node = Nodes[string]
+type OnToggle = Props['onToggle']
 
 const defaultChecked = false
 
@@ -66,7 +67,7 @@ describe('Checkbox', () => {
 
     describe('When clicked on', () => {
       test('invokes the callback function', () => {
-        const onToggle = jest.fn()
+        const onToggle: jest.MockedFunction<OnToggle> = jest.fn()
         renderCheckbox(
           createProps({
             nodes: createSingleLevelNormalizedObject(),
@@ -97,7 +98,7 @@ describe('Checkbox', () => {
       [parent, '0']
     ])('When clicked on %s', (text, id) => {
       test(`invokes the callback function with ${id}`, () => {
-        const onToggle = jest.fn()
+        const onToggle: jest.MockedFunction<OnToggle> = jest.fn()
         renderCheckbox(
           createProps({
             nodes: createMultiLevelNormalizedObject(),
