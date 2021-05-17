@@ -31,10 +31,15 @@
     "deploy": "gh-pages -d build"
   },
   "jest": {
+    "clearMocks": true,
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
       "!src/index.tsx"
-    ]
+    ],
+    "displayName": "React Checkbox Tree",
+    "resetMocks": true,
+    "resetModules": true,
+    "restoreMocks": true
   },
   "repository": "https://github.com/joelgeorgev/react-checkbox-tree",
   "keywords": [
