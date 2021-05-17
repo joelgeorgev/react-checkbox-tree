@@ -24,7 +24,7 @@
     "compile": "tsc",
     "compile:watch": "tsc --watch",
     "format": "prettier --check \"./**/*.{ts,tsx,json,yml,md}\"",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
