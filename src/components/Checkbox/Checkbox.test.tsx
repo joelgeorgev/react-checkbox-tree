@@ -22,7 +22,7 @@ const createNode = (overrides?: Partial<Node>): Node => ({
 
 const text = 'Hello World'
 
-const createSingleLevelNormalizedObject = (): Nodes => ({
+const createSingleLevelNormalizedTree = (): Nodes => ({
   0: createNode({ text })
 })
 
@@ -30,7 +30,7 @@ const parent = 'Parent'
 const child = 'Child'
 const grandchild = 'Grandchild'
 
-const createMultiLevelNormalizedObject = (): Nodes => ({
+const createMultilevelNormalizedTree = (): Nodes => ({
   0: createNode({ text: parent, childIds: ['1'] }),
   1: createNode({ text: child, childIds: ['2'], parentId: '0' }),
   2: createNode({ text: grandchild, parentId: '1' })
@@ -38,7 +38,7 @@ const createMultiLevelNormalizedObject = (): Nodes => ({
 
 const createProps = (overrides?: Partial<Props>): Props => ({
   id: '0',
-  nodes: createSingleLevelNormalizedObject(),
+  nodes: createSingleLevelNormalizedTree(),
   onToggle: () => {},
   ...overrides
 })
@@ -58,11 +58,9 @@ const assertCheckbox = (text: string): void => {
 }
 
 describe('Checkbox', () => {
-  describe('Given a single level normalized object', () => {
+  describe('Given a single level normalized tree', () => {
     test('renders a checkbox', () => {
-      renderCheckbox(
-        createProps({ nodes: createSingleLevelNormalizedObject() })
-      )
+      renderCheckbox(createProps({ nodes: createSingleLevelNormalizedTree() }))
 
       assertCheckbox(text)
     })
@@ -72,7 +70,7 @@ describe('Checkbox', () => {
         const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
-            nodes: createSingleLevelNormalizedObject(),
+            nodes: createSingleLevelNormalizedTree(),
             onToggle
           })
         )
@@ -85,9 +83,9 @@ describe('Checkbox', () => {
     })
   })
 
-  describe('Given a multi level normalized object', () => {
+  describe('Given a multilevel normalized tree', () => {
     test('renders all checkboxes', () => {
-      renderCheckbox(createProps({ nodes: createMultiLevelNormalizedObject() }))
+      renderCheckbox(createProps({ nodes: createMultilevelNormalizedTree() }))
 
       assertCheckbox(parent)
       assertCheckbox(child)
@@ -103,7 +101,7 @@ describe('Checkbox', () => {
         const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
-            nodes: createMultiLevelNormalizedObject(),
+            nodes: createMultilevelNormalizedTree(),
             onToggle
           })
         )

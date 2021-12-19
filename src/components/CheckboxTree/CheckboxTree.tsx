@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { Checkbox } from '..'
 import { normalize, getNewState } from '../../utils'
-import type { Nodes, RecursiveData } from '../../types'
+import type { Nodes, Tree } from '../../types'
 
 const List = styled.ul`
   list-style-type: none;
@@ -11,7 +11,7 @@ const List = styled.ul`
 `
 
 interface Props {
-  data: RecursiveData
+  data: Tree
 }
 
 export const CheckboxTree = ({ data }: Props) => {

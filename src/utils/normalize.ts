@@ -1,18 +1,18 @@
-import type { RecursiveData, Nodes } from '../types'
+import type { Tree, Nodes } from '../types'
 
 const RECURSION_KEY = 'children'
 
-export const normalize = (data: RecursiveData): Nodes => {
-  let normalizedData: Nodes = {}
+export const normalize = (tree: Tree): Nodes => {
+  let normalizedTree: Nodes = {}
   let counter = -1
 
-  const transform = (node: RecursiveData, parentId?: string) => {
+  const transform = (node: Tree, parentId?: string): void => {
     counter += 1
 
     const id = `${counter}`
     const { text, checked } = node
 
-    normalizedData[id] = {
+    normalizedTree[id] = {
       text,
       checked,
       parentId,
@@ -20,7 +20,7 @@ export const normalize = (data: RecursiveData): Nodes => {
     }
 
     if (parentId) {
-      normalizedData[parentId].childIds.push(id)
+      normalizedTree[parentId].childIds.push(id)
     }
 
     if (node[RECURSION_KEY] && node[RECURSION_KEY].length) {
@@ -30,7 +30,7 @@ export const normalize = (data: RecursiveData): Nodes => {
     }
   }
 
-  transform(data)
+  transform(tree)
 
-  return normalizedData
+  return normalizedTree
 }

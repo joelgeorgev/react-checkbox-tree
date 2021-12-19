@@ -4,33 +4,31 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { CheckboxTree } from '.'
 
 type Props = ComponentProps<typeof CheckboxTree>
-type RecursiveData = Props['data']
+type Tree = Props['data']
 
 const text = 'Hello World'
 const defaultChecked = false
 
-const createDataObject = (
-  overrides?: Partial<RecursiveData>
-): RecursiveData => ({
+const createTree = (overrides?: Partial<Tree>): Tree => ({
   text,
   checked: defaultChecked,
   children: [],
   ...overrides
 })
 
-const createNonRecursiveObject = (): RecursiveData => createDataObject()
+const createSingleLevelTree = (): Tree => createTree()
 
 const parent = 'Parent'
 const child = 'Child'
 const grandchild = 'Grandchild'
 
-const createRecursiveObject = (): RecursiveData =>
-  createDataObject({
+const createMultilevelTree = (): Tree =>
+  createTree({
     text: parent,
     children: [
-      createDataObject({
+      createTree({
         text: child,
-        children: [createDataObject({ text: grandchild })]
+        children: [createTree({ text: grandchild })]
       })
     ]
   })
@@ -52,15 +50,15 @@ const assertCheckbox = (text: string, checked = defaultChecked): void => {
 const assertCheckboxChecked = (text: string): void => assertCheckbox(text, true)
 
 describe('CheckboxTree', () => {
-  describe('Given a non-recursive object', () => {
+  describe('Given a single level tree', () => {
     test('renders a checkbox', () => {
-      renderCheckboxTree({ data: createNonRecursiveObject() })
+      renderCheckboxTree({ data: createSingleLevelTree() })
 
       assertCheckbox(text)
     })
 
     test('toggles the checkbox', () => {
-      renderCheckboxTree({ data: createNonRecursiveObject() })
+      renderCheckboxTree({ data: createSingleLevelTree() })
 
       toggleCheckbox(text)
 
@@ -68,17 +66,17 @@ describe('CheckboxTree', () => {
     })
   })
 
-  describe('Given a recursive object', () => {
+  describe('Given a multilevel tree', () => {
     test('renders all checkboxes', () => {
-      renderCheckboxTree({ data: createRecursiveObject() })
+      renderCheckboxTree({ data: createMultilevelTree() })
 
       assertCheckbox(parent)
       assertCheckbox(child)
       assertCheckbox(grandchild)
     })
 
-    test('toggles all checkboxes down recursively', () => {
-      renderCheckboxTree({ data: createRecursiveObject() })
+    test('toggles all checkboxes down', () => {
+      renderCheckboxTree({ data: createMultilevelTree() })
 
       toggleCheckbox(parent)
 
@@ -87,8 +85,8 @@ describe('CheckboxTree', () => {
       assertCheckboxChecked(grandchild)
     })
 
-    test('toggles all checkboxes up recursively', () => {
-      renderCheckboxTree({ data: createRecursiveObject() })
+    test('toggles all checkboxes up', () => {
+      renderCheckboxTree({ data: createMultilevelTree() })
 
       toggleCheckbox(grandchild)
 

@@ -1,12 +1,10 @@
 import { normalize } from './normalize'
 
-type RecursiveData = Parameters<typeof normalize>[number]
+type Tree = Parameters<typeof normalize>[number]
 type Nodes = ReturnType<typeof normalize>
 type Node = Nodes[string]
 
-const createRecursiveObject = (
-  overrides?: Partial<RecursiveData>
-): RecursiveData => ({
+const createTree = (overrides?: Partial<Tree>): Tree => ({
   text: '',
   checked: false,
   children: [],
@@ -25,19 +23,19 @@ describe('normalize', () => {
   describe.each([
     [
       {
-        recursiveObject: createRecursiveObject({ text: 'Parent' }),
-        normalizedObject: {
+        tree: createTree({ text: 'Parent' }),
+        normalizedTree: {
           0: createNode({ text: 'Parent' })
         }
       }
     ],
     [
       {
-        recursiveObject: createRecursiveObject({
+        tree: createTree({
           text: 'Parent',
-          children: [createRecursiveObject({ text: 'Child' })]
+          children: [createTree({ text: 'Child' })]
         }),
-        normalizedObject: {
+        normalizedTree: {
           0: createNode({ text: 'Parent', childIds: ['1'] }),
           1: createNode({ text: 'Child', parentId: '0' })
         }
@@ -45,28 +43,25 @@ describe('normalize', () => {
     ],
     [
       {
-        recursiveObject: createRecursiveObject({
+        tree: createTree({
           text: 'Parent',
           children: [
-            createRecursiveObject({
+            createTree({
               text: 'Child',
-              children: [createRecursiveObject({ text: 'Grandchild' })]
+              children: [createTree({ text: 'Grandchild' })]
             })
           ]
         }),
-        normalizedObject: {
+        normalizedTree: {
           0: createNode({ text: 'Parent', childIds: ['1'] }),
           1: createNode({ text: 'Child', childIds: ['2'], parentId: '0' }),
           2: createNode({ text: 'Grandchild', parentId: '1' })
         }
       }
     ]
-  ])(
-    'Given an object with a recursive structure',
-    ({ recursiveObject, normalizedObject }) => {
-      test('returns a normalized object', () => {
-        expect(normalize(recursiveObject)).toEqual(normalizedObject)
-      })
-    }
-  )
+  ])('Given a tree', ({ tree, normalizedTree }) => {
+    test('returns a normalized tree', () => {
+      expect(normalize(tree)).toEqual(normalizedTree)
+    })
+  })
 })
