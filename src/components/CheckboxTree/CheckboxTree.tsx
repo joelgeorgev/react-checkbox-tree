@@ -11,11 +11,11 @@ const List = styled.ul`
 `
 
 interface Props {
-  data: Tree
+  tree: Tree
 }
 
-export const CheckboxTree = ({ data }: Props) => {
-  const [nodes, setNodes] = useState<Nodes>(normalize(data))
+export const CheckboxTree = ({ tree }: Props) => {
+  const [nodes, setNodes] = useState<Nodes>(normalize(tree))
 
   const toggleCheckbox = (id: string): void => {
     setNodes((prevNodes) => getNewState(prevNodes, id))

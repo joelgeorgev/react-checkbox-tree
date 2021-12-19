@@ -33,7 +33,7 @@ export const App = () => (
     </header>
     <Section>
       <article>
-        <CheckboxTree data={tree} />
+        <CheckboxTree tree={tree} />
       </article>
     </Section>
     <Footer>

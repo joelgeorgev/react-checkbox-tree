@@ -4,7 +4,7 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import { CheckboxTree } from '.'
 
 type Props = ComponentProps<typeof CheckboxTree>
-type Tree = Props['data']
+type Tree = Props['tree']
 
 const text = 'Hello World'
 const defaultChecked = false
@@ -52,13 +52,13 @@ const assertCheckboxChecked = (text: string): void => assertCheckbox(text, true)
 describe('CheckboxTree', () => {
   describe('Given a single level tree', () => {
     test('renders a checkbox', () => {
-      renderCheckboxTree({ data: createSingleLevelTree() })
+      renderCheckboxTree({ tree: createSingleLevelTree() })
 
       assertCheckbox(text)
     })
 
     test('toggles the checkbox', () => {
-      renderCheckboxTree({ data: createSingleLevelTree() })
+      renderCheckboxTree({ tree: createSingleLevelTree() })
 
       toggleCheckbox(text)
 
@@ -68,7 +68,7 @@ describe('CheckboxTree', () => {
 
   describe('Given a multilevel tree', () => {
     test('renders all checkboxes', () => {
-      renderCheckboxTree({ data: createMultilevelTree() })
+      renderCheckboxTree({ tree: createMultilevelTree() })
 
       assertCheckbox(parent)
       assertCheckbox(child)
@@ -76,7 +76,7 @@ describe('CheckboxTree', () => {
     })
 
     test('toggles all checkboxes down', () => {
-      renderCheckboxTree({ data: createMultilevelTree() })
+      renderCheckboxTree({ tree: createMultilevelTree() })
 
       toggleCheckbox(parent)
 
@@ -86,7 +86,7 @@ describe('CheckboxTree', () => {
     })
 
     test('toggles all checkboxes up', () => {
-      renderCheckboxTree({ data: createMultilevelTree() })
+      renderCheckboxTree({ tree: createMultilevelTree() })
 
       toggleCheckbox(grandchild)
 
