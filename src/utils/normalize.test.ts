@@ -1,6 +1,6 @@
 import { normalize } from './normalize'
 
-type Tree = Parameters<typeof normalize>[number]
+type Tree = Parameters<typeof normalize>[0]
 type Nodes = ReturnType<typeof normalize>
 type Node = Nodes[string]
 
