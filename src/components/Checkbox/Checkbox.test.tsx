@@ -46,12 +46,12 @@ const createProps = (overrides?: Partial<Props>): Props => ({
 const renderCheckbox = (props: Props) => render(<Checkbox {...props} />)
 
 const findCheckbox = (text: string): HTMLInputElement =>
-  screen.getByRole('checkbox', { name: text }) as HTMLInputElement
+  screen.getByRole('checkbox', { name: text })
 
 const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
 
 const assertCheckbox = (text: string): void => {
-  const checkbox = findCheckbox(text) as HTMLInputElement
+  const checkbox = findCheckbox(text)
 
   expect(checkbox).toBeDefined()
   expect(checkbox.checked).toEqual(defaultChecked)
