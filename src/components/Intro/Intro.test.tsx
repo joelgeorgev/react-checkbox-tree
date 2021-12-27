@@ -29,10 +29,10 @@ describe('Intro', () => {
 
     const link = screen.getByRole('link', {
       name: 'create-react-app'
-    }) as HTMLLinkElement
+    })
 
     expect(link).toBeDefined()
-    expect(link.href).toEqual(
+    expect(link.getAttribute('href')).toEqual(
       'https://github.com/facebookincubator/create-react-app'
     )
   })
