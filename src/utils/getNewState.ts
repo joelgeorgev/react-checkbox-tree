@@ -30,9 +30,8 @@ const areChildrenChecked = (nodes: Nodes, id: string): boolean => {
   const { checked, childIds } = currentNode
 
   return childIds.length
-    ? childIds.reduce(
-        (acc: boolean, childId: string): boolean =>
-          acc && areChildrenChecked(nodes, childId),
+    ? childIds.reduce<boolean>(
+        (acc, childId) => acc && areChildrenChecked(nodes, childId),
         true
       )
     : checked
