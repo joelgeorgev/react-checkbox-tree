@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 import { Intro, CheckboxTree } from './components'
-import tree from './data/tree.json'
 
 import github from './assets/github.svg'
 
@@ -33,7 +32,7 @@ export const App = () => (
     </header>
     <Section>
       <article>
-        <CheckboxTree tree={tree} />
+        <CheckboxTree />
       </article>
     </Section>
     <Footer>

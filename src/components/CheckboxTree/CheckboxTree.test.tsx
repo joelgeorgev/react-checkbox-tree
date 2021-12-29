@@ -1,10 +1,13 @@
-import type { ComponentProps } from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
+import { loadTree } from '../../data'
 
-type Props = ComponentProps<typeof CheckboxTree>
-type Tree = Props['tree']
+jest.mock('../../data')
+
+type Tree = ReturnType<typeof loadTree>
+
+const mockLoadTree = loadTree as jest.MockedFunction<typeof loadTree>
 
 const text = 'Hello World'
 const defaultChecked = false
@@ -33,7 +36,7 @@ const createMultilevelTree = (): Tree =>
     ]
   })
 
-const renderCheckboxTree = (props: Props) => render(<CheckboxTree {...props} />)
+const renderCheckboxTree = () => render(<CheckboxTree />)
 
 const findCheckbox = (text: string): HTMLInputElement =>
   screen.getByRole('checkbox', { name: text })
@@ -49,50 +52,75 @@ const assertCheckbox = (text: string, checked = defaultChecked): void => {
 
 const assertCheckboxChecked = (text: string): void => assertCheckbox(text, true)
 
+const assertLoadTree = (): void => {
+  expect(mockLoadTree).toHaveBeenCalledTimes(1)
+  expect(mockLoadTree).toHaveBeenCalledWith()
+}
+
 describe('CheckboxTree', () => {
   describe('Given a single level tree', () => {
     test('renders a checkbox', () => {
-      renderCheckboxTree({ tree: createSingleLevelTree() })
+      mockLoadTree.mockReturnValue(createSingleLevelTree())
+
+      renderCheckboxTree()
 
       assertCheckbox(text)
+
+      assertLoadTree()
     })
 
     test('toggles the checkbox', () => {
-      renderCheckboxTree({ tree: createSingleLevelTree() })
+      mockLoadTree.mockReturnValue(createSingleLevelTree())
+
+      renderCheckboxTree()
 
       toggleCheckbox(text)
 
       assertCheckboxChecked(text)
+
+      assertLoadTree()
     })
   })
 
   describe('Given a multilevel tree', () => {
     test('renders all checkboxes', () => {
-      renderCheckboxTree({ tree: createMultilevelTree() })
+      mockLoadTree.mockReturnValue(createMultilevelTree())
+
+      renderCheckboxTree()
 
       assertCheckbox(parent)
       assertCheckbox(child)
       assertCheckbox(grandchild)
+
+      assertLoadTree()
     })
 
     test('toggles all checkboxes down', () => {
-      renderCheckboxTree({ tree: createMultilevelTree() })
+      mockLoadTree.mockReturnValue(createMultilevelTree())
+
+      renderCheckboxTree()
 
       toggleCheckbox(parent)
 
       assertCheckboxChecked(parent)
       assertCheckboxChecked(child)
       assertCheckboxChecked(grandchild)
+
+      assertLoadTree()
     })
 
     test('toggles all checkboxes up', () => {
-      renderCheckboxTree({ tree: createMultilevelTree() })
+      mockLoadTree.mockReturnValue(createMultilevelTree())
+
+      renderCheckboxTree()
 
       toggleCheckbox(grandchild)
 
       assertCheckboxChecked(parent)
       assertCheckboxChecked(child)
       assertCheckboxChecked(grandchild)
+
+      assertLoadTree()
     })
   })
 })

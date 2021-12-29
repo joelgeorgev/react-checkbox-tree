@@ -1,29 +1,34 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { Checkbox } from '..'
+import { loadTree } from '../../data'
 import { normalize, getNewState } from '../../utils'
-import type { Nodes, Tree } from '../../types'
+
+type Nodes = ReturnType<typeof normalize>
 
 const List = styled.ul`
   list-style-type: none;
   padding-left: 0;
 `
 
-interface Props {
-  tree: Tree
-}
+export const CheckboxTree = () => {
+  const [nodes, setNodes] = useState<Nodes | null>(null)
 
-export const CheckboxTree = ({ tree }: Props) => {
-  const [nodes, setNodes] = useState<Nodes>(normalize(tree))
+  useEffect(() => {
+    const tree = loadTree()
+    setNodes(normalize(tree))
+  }, [])
 
   const toggleCheckbox = (id: string): void => {
-    setNodes((prevNodes) => getNewState(prevNodes, id))
+    setNodes((prevNodes) => getNewState(prevNodes as Nodes, id))
   }
 
   return (
-    <List>
-      <Checkbox id={'0'} nodes={nodes} onToggle={toggleCheckbox} />
-    </List>
+    nodes && (
+      <List>
+        <Checkbox id={'0'} nodes={nodes} onToggle={toggleCheckbox} />
+      </List>
+    )
   )
 }
