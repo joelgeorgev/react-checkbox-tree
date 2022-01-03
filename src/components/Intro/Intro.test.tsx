@@ -16,7 +16,7 @@ describe('Intro', () => {
   test('renders a description', () => {
     const { container } = renderIntro()
 
-    const paragraph = container.querySelector('p') as HTMLParagraphElement
+    const paragraph = container.getElementsByTagName('p')[0]
 
     expect(paragraph).toBeDefined()
     expect(paragraph.textContent).toEqual(
