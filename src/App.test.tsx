@@ -1,12 +1,15 @@
-import { render, unmountComponentAtNode } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 
 import { App } from './App'
 
 describe('App', () => {
   test('renders', () => {
     const container = document.createElement('div')
-    render(<App />, container)
-    unmountComponentAtNode(container)
+    const root = createRoot(container)
+
+    root.render(<App />)
+
+    root.unmount()
     container.remove()
   })
 })
