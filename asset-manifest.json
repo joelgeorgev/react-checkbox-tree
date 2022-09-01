@@ -1,20 +1,13 @@
 {
   "files": {
-    "main.js": "/react-checkbox-tree/static/js/main.c11cc902.chunk.js",
-    "main.js.map": "/react-checkbox-tree/static/js/main.c11cc902.chunk.js.map",
-    "runtime-main.js": "/react-checkbox-tree/static/js/runtime-main.e267fb75.js",
-    "runtime-main.js.map": "/react-checkbox-tree/static/js/runtime-main.e267fb75.js.map",
-    "static/js/2.5b36ffca.chunk.js": "/react-checkbox-tree/static/js/2.5b36ffca.chunk.js",
-    "static/js/2.5b36ffca.chunk.js.map": "/react-checkbox-tree/static/js/2.5b36ffca.chunk.js.map",
+    "main.js": "/react-checkbox-tree/static/js/main.baf98b56.js",
+    "static/media/source-sans-pro-v11-latin-regular.woff": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.74ddb2b07a7f05bded6d.woff",
+    "static/media/source-sans-pro-v11-latin-regular.woff2": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.96b158827eaacc5f7912.woff2",
+    "static/media/github.svg": "/react-checkbox-tree/static/media/github.6637870789067db1d24b378d4c212276.svg",
     "index.html": "/react-checkbox-tree/index.html",
-    "static/js/2.5b36ffca.chunk.js.LICENSE.txt": "/react-checkbox-tree/static/js/2.5b36ffca.chunk.js.LICENSE.txt",
-    "static/media/github.66378707.svg": "/react-checkbox-tree/static/media/github.66378707.svg",
-    "static/media/source-sans-pro-v11-latin-regular.74ddb2b0.woff": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.74ddb2b0.woff",
-    "static/media/source-sans-pro-v11-latin-regular.96b15882.woff2": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.96b15882.woff2"
+    "main.baf98b56.js.map": "/react-checkbox-tree/static/js/main.baf98b56.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.e267fb75.js",
-    "static/js/2.5b36ffca.chunk.js",
-    "static/js/main.c11cc902.chunk.js"
+    "static/js/main.baf98b56.js"
   ]
 }
