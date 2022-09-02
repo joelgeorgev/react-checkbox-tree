@@ -13,17 +13,6 @@ describe('Intro', () => {
     ).toBeDefined()
   })
 
-  test('renders a description', () => {
-    const { container } = renderIntro()
-
-    const paragraph = container.getElementsByTagName('p')[0]
-
-    expect(paragraph).toBeDefined()
-    expect(paragraph.textContent).toEqual(
-      'A react app showcasing a simple checkbox tree component. This project was created using create-react-app.'
-    )
-  })
-
   test('renders a link to create-react-app GitHub repository', () => {
     renderIntro()
 
