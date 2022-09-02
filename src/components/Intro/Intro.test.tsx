@@ -27,12 +27,12 @@ describe('Intro', () => {
   test('renders a link to create-react-app GitHub repository', () => {
     renderIntro()
 
-    const link = screen.getByRole('link', {
+    const link: HTMLAnchorElement = screen.getByRole('link', {
       name: 'create-react-app'
     })
 
     expect(link).toBeDefined()
-    expect(link.getAttribute('href')).toEqual(
+    expect(link.href).toEqual(
       'https://github.com/facebookincubator/create-react-app'
     )
   })
