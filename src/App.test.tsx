@@ -1,15 +1,20 @@
-import { createRoot } from 'react-dom/client'
+import { render, screen } from '@testing-library/react'
 
 import { App } from './App'
 
+const renderApp = () => render(<App />)
+
 describe('App', () => {
-  test('renders', () => {
-    const container = document.createElement('div')
-    const root = createRoot(container)
+  test('renders a link to the repository', () => {
+    renderApp()
 
-    root.render(<App />)
+    const link: HTMLAnchorElement = screen.getByRole('link', {
+      name: 'Go to GitHub repository page'
+    })
 
-    root.unmount()
-    container.remove()
+    expect(link).toBeDefined()
+    expect(link.href).toEqual(
+      'https://github.com/joelgeorgev/react-checkbox-tree'
+    )
   })
 })
