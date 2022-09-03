@@ -1,5 +1,6 @@
 import type { ComponentProps } from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { Checkbox } from '.'
 
@@ -48,7 +49,11 @@ const renderCheckbox = (props: Props) => render(<Checkbox {...props} />)
 const findCheckbox = (text: string): HTMLInputElement =>
   screen.getByRole('checkbox', { name: text })
 
-const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
+const toggleCheckbox = (text: string) => {
+  const user = userEvent.setup()
+
+  return user.click(findCheckbox(text))
+}
 
 const assertCheckbox = (text: string): void => {
   const checkbox = findCheckbox(text)
@@ -66,7 +71,7 @@ describe('Checkbox', () => {
     })
 
     describe('When clicked on', () => {
-      test('invokes the callback function', () => {
+      test('invokes the callback function', async () => {
         const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
@@ -75,7 +80,7 @@ describe('Checkbox', () => {
           })
         )
 
-        toggleCheckbox(text)
+        await toggleCheckbox(text)
 
         expect(onToggle).toHaveBeenCalledTimes(1)
         expect(onToggle).toHaveBeenCalledWith('0')
@@ -97,7 +102,7 @@ describe('Checkbox', () => {
       [child, '1'],
       [parent, '0']
     ])('When clicked on %s', (text, id) => {
-      test(`invokes the callback function with ${id}`, () => {
+      test(`invokes the callback function with ${id}`, async () => {
         const onToggle = createOnToggle()
         renderCheckbox(
           createProps({
@@ -106,7 +111,7 @@ describe('Checkbox', () => {
           })
         )
 
-        toggleCheckbox(text)
+        await toggleCheckbox(text)
 
         expect(onToggle).toHaveBeenCalledTimes(1)
         expect(onToggle).toHaveBeenCalledWith(id)
