@@ -1,126 +1,104 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, act } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
+import { Checkbox } from '..'
 import { loadTree } from '../../data'
+import { normalize, getNewState } from '../../utils'
 
+jest.mock('..')
 jest.mock('../../data')
+jest.mock('../../utils')
+
+const mockCheckbox = Checkbox as jest.MockedFunction<typeof Checkbox>
+const mockLoadTree = loadTree as jest.MockedFunction<typeof loadTree>
+const mockNormalize = normalize as jest.MockedFunction<typeof normalize>
+const mockGetNewState = getNewState as jest.MockedFunction<typeof getNewState>
 
 type Tree = ReturnType<typeof loadTree>
+type Nodes = ReturnType<typeof normalize>
+type Node = Nodes[string]
 
-const mockLoadTree = loadTree as jest.MockedFunction<typeof loadTree>
-
-const text = 'Hello World'
-const defaultChecked = false
-
-const createTree = (overrides?: Partial<Tree>): Tree => ({
-  text,
-  checked: defaultChecked,
-  children: [],
-  ...overrides
+const createTree = (): Tree => ({
+  text: '',
+  checked: false,
+  children: []
 })
 
-const createSingleLevelTree = (): Tree => createTree()
-
-const parent = 'Parent'
-const child = 'Child'
-const grandchild = 'Grandchild'
-
-const createMultilevelTree = (): Tree =>
-  createTree({
-    text: parent,
-    children: [
-      createTree({
-        text: child,
-        children: [createTree({ text: grandchild })]
-      })
-    ]
-  })
+const createNodes = (overrides?: Partial<Node>): Nodes => ({
+  '0': {
+    text: '',
+    checked: false,
+    childIds: [],
+    ...overrides
+  }
+})
 
 const renderCheckboxTree = () => render(<CheckboxTree />)
 
-const findCheckbox = (text: string): HTMLInputElement =>
-  screen.getByRole('checkbox', { name: text })
-
-const toggleCheckbox = (text: string) => fireEvent.click(findCheckbox(text))
-
-const assertCheckbox = (text: string, checked = defaultChecked): void => {
-  const checkbox = findCheckbox(text)
-
-  expect(checkbox).toBeDefined()
-  expect(checkbox.checked).toEqual(checked)
-}
-
-const assertCheckboxChecked = (text: string): void => assertCheckbox(text, true)
-
-const assertLoadTree = (): void => {
-  expect(mockLoadTree).toHaveBeenCalledTimes(1)
-  expect(mockLoadTree).toHaveBeenCalledWith()
-}
-
 describe('CheckboxTree', () => {
-  describe('Given a single level tree', () => {
-    test('renders a checkbox', () => {
-      mockLoadTree.mockReturnValue(createSingleLevelTree())
-
+  describe('Given there is NO tree', () => {
+    test('does NOT render Checkbox', () => {
       renderCheckboxTree()
 
-      assertCheckbox(text)
+      expect(mockLoadTree).toHaveBeenCalledTimes(1)
+      expect(mockLoadTree).toHaveBeenCalledWith()
 
-      assertLoadTree()
-    })
+      expect(mockNormalize).toHaveBeenCalledTimes(1)
+      expect(mockNormalize).toHaveBeenCalledWith(undefined)
 
-    test('toggles the checkbox', () => {
-      mockLoadTree.mockReturnValue(createSingleLevelTree())
+      expect(mockGetNewState).toHaveBeenCalledTimes(0)
 
-      renderCheckboxTree()
-
-      toggleCheckbox(text)
-
-      assertCheckboxChecked(text)
-
-      assertLoadTree()
+      expect(mockCheckbox).toHaveBeenCalledTimes(0)
     })
   })
 
-  describe('Given a multilevel tree', () => {
-    test('renders all checkboxes', () => {
-      mockLoadTree.mockReturnValue(createMultilevelTree())
+  describe('Given a tree', () => {
+    test('renders Checkbox', () => {
+      const tree = createTree()
+      mockLoadTree.mockReturnValue(tree)
+      const nodes = createNodes()
+      mockNormalize.mockReturnValue(nodes)
 
       renderCheckboxTree()
 
-      assertCheckbox(parent)
-      assertCheckbox(child)
-      assertCheckbox(grandchild)
+      expect(mockLoadTree).toHaveBeenCalledTimes(1)
+      expect(mockLoadTree).toHaveBeenCalledWith()
 
-      assertLoadTree()
-    })
+      expect(mockNormalize).toHaveBeenCalledTimes(1)
+      expect(mockNormalize).toHaveBeenCalledWith(tree)
 
-    test('toggles all checkboxes down', () => {
-      mockLoadTree.mockReturnValue(createMultilevelTree())
+      expect(mockGetNewState).toHaveBeenCalledTimes(0)
 
-      renderCheckboxTree()
+      expect(mockCheckbox).toHaveBeenCalledTimes(1)
 
-      toggleCheckbox(parent)
+      const checkboxProps = mockCheckbox.mock.calls[0][0]
 
-      assertCheckboxChecked(parent)
-      assertCheckboxChecked(child)
-      assertCheckboxChecked(grandchild)
+      expect(checkboxProps).toEqual({
+        id: '0',
+        nodes,
+        onToggle: expect.any(Function)
+      })
 
-      assertLoadTree()
-    })
+      const newNodes = createNodes({ text: 'New' })
+      mockGetNewState.mockReturnValue(newNodes)
+      const nodeId = '1'
 
-    test('toggles all checkboxes up', () => {
-      mockLoadTree.mockReturnValue(createMultilevelTree())
+      act(() => {
+        checkboxProps.onToggle(nodeId)
+      })
 
-      renderCheckboxTree()
+      expect(mockGetNewState).toHaveBeenCalledTimes(1)
+      expect(mockGetNewState).toHaveBeenCalledWith(nodes, nodeId)
 
-      toggleCheckbox(grandchild)
+      expect(mockCheckbox).toHaveBeenCalledTimes(2)
 
-      assertCheckboxChecked(parent)
-      assertCheckboxChecked(child)
-      assertCheckboxChecked(grandchild)
+      const newCheckboxProps = mockCheckbox.mock.calls[1][0]
 
-      assertLoadTree()
+      expect(newCheckboxProps).toEqual({
+        id: '0',
+        nodes: newNodes,
+        onToggle: expect.any(Function)
+      })
     })
   })
 })
