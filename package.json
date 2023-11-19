@@ -54,11 +54,5 @@
   ],
   "author": "Joel George V",
   "homepage": "https://joelgeorgev.github.io/react-checkbox-tree",
-  "license": "MIT",
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "license": "MIT"
 }
