@@ -11,9 +11,9 @@ Check out the app [here](https://joelgeorgev.github.io/react-checkbox-tree).
 ## To run the app
 
 ```bash
-$ git clone https://github.com/joelgeorgev/react-checkbox-tree.git
-$ cd react-checkbox-tree
-$ npm install && npm start
+$ nvm use
+$ npm ci
+$ npm start
 ```
 
 ## License
