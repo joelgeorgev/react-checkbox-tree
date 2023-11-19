@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.js": "/react-checkbox-tree/static/js/main.baf98b56.js",
-    "static/media/source-sans-pro-v11-latin-regular.woff": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.74ddb2b07a7f05bded6d.woff",
+    "main.js": "/react-checkbox-tree/static/js/main.d4f605a2.js",
     "static/media/source-sans-pro-v11-latin-regular.woff2": "/react-checkbox-tree/static/media/source-sans-pro-v11-latin-regular.96b158827eaacc5f7912.woff2",
-    "static/media/github.svg": "/react-checkbox-tree/static/media/github.6637870789067db1d24b378d4c212276.svg",
+    "static/media/github.svg": "/react-checkbox-tree/static/media/github.57f0d9b2a7bf5cf9b8ed191a86bf3dc5.svg",
     "index.html": "/react-checkbox-tree/index.html",
-    "main.baf98b56.js.map": "/react-checkbox-tree/static/js/main.baf98b56.js.map"
+    "main.d4f605a2.js.map": "/react-checkbox-tree/static/js/main.d4f605a2.js.map"
   },
   "entrypoints": [
-    "static/js/main.baf98b56.js"
+    "static/js/main.d4f605a2.js"
   ]
 }
