@@ -23,7 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "check": "npm run check:format && npm run check:types",
-    "check:format": "prettier --check \"./**/*.{ts,tsx,json,yml,md}\"",
+    "check:format": "prettier --check \"./**/*.{html,ts,tsx,json,yml,md}\"",
     "check:types": "tsc",
     "check:types:watch": "npm run check:types -- --watch",
     "test": "react-scripts test",
