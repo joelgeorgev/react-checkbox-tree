@@ -1,3 +1,4 @@
+import { MockedFunction } from 'vitest'
 import { render, act } from '@testing-library/react'
 
 import { CheckboxTree } from '.'
@@ -5,14 +6,14 @@ import { Checkbox } from '..'
 import { loadTree } from '../../data'
 import { normalize, getNewState } from '../../utils'
 
-jest.mock('..')
-jest.mock('../../data')
-jest.mock('../../utils')
+vi.mock('..')
+vi.mock('../../data')
+vi.mock('../../utils')
 
-const mockCheckbox = Checkbox as jest.MockedFunction<typeof Checkbox>
-const mockLoadTree = loadTree as jest.MockedFunction<typeof loadTree>
-const mockNormalize = normalize as jest.MockedFunction<typeof normalize>
-const mockGetNewState = getNewState as jest.MockedFunction<typeof getNewState>
+const mockCheckbox = Checkbox as MockedFunction<typeof Checkbox>
+const mockLoadTree = loadTree as MockedFunction<typeof loadTree>
+const mockNormalize = normalize as MockedFunction<typeof normalize>
+const mockGetNewState = getNewState as MockedFunction<typeof getNewState>
 
 type Tree = ReturnType<typeof loadTree>
 type Nodes = ReturnType<typeof normalize>

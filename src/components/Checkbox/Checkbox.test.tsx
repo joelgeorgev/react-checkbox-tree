@@ -1,3 +1,4 @@
+import { MockedFunction } from 'vitest'
 import type { ComponentProps } from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -9,7 +10,7 @@ type Nodes = Props['nodes']
 type Node = Nodes[string]
 type OnToggle = Props['onToggle']
 
-const createOnToggle = (): jest.MockedFunction<OnToggle> => jest.fn()
+const createOnToggle = (): MockedFunction<OnToggle> => vi.fn()
 
 const defaultChecked = false
 

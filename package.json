@@ -10,38 +10,30 @@
   "devDependencies": {
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.4.3",
-    "@types/jest": "^29.0.0",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.26",
+    "@vitejs/plugin-react": "^5.1.4",
+    "@vitest/coverage-v8": "^4.0.18",
     "gh-pages": "^4.0.0",
+    "jsdom": "^28.1.0",
     "prettier": "^2.7.1",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.8.2",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "check": "npm run check:format && npm run check:types",
     "check:format": "prettier --check \"./**/*.{html,ts,tsx,json,yml,md}\"",
     "check:types": "tsc",
     "check:types:watch": "npm run check:types -- --watch",
-    "test": "react-scripts test",
-    "test:coverage": "npm test -- --coverage",
-    "eject": "react-scripts eject",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  },
-  "jest": {
-    "clearMocks": true,
-    "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}",
-      "!src/index.tsx"
-    ],
-    "displayName": "React Checkbox Tree",
-    "resetMocks": true,
-    "resetModules": true,
-    "restoreMocks": true
   },
   "repository": "https://github.com/joelgeorgev/react-checkbox-tree",
   "keywords": [
