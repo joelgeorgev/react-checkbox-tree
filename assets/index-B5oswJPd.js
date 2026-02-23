@@ -31,7 +31,7 @@ Error generating stack: `+o.message+`
 `,eh=vn.footer`
   align-self: center;
   margin: 2rem;
-`,th=()=>Ee.jsxs(qp,{children:[Ee.jsx("header",{children:Ee.jsx(Zp,{})}),Ee.jsx(bp,{children:Ee.jsx("article",{children:Ee.jsx(Gp,{})})}),Ee.jsx(eh,{children:Ee.jsx("a",{href:"https://github.com/joelgeorgev/react-checkbox-tree",children:Ee.jsx("img",{src:Jp,alt:"Go to GitHub repository page"})})})]}),nh="/assets/source-sans-pro-v11-latin-regular-DcFX28P_.woff2",rh=Fp`
+`,th=()=>Ee.jsxs(qp,{children:[Ee.jsx("header",{children:Ee.jsx(Zp,{})}),Ee.jsx(bp,{children:Ee.jsx("article",{children:Ee.jsx(Gp,{})})}),Ee.jsx(eh,{children:Ee.jsx("a",{href:"https://github.com/joelgeorgev/react-checkbox-tree",children:Ee.jsx("img",{src:Jp,alt:"Go to GitHub repository page"})})})]}),nh="/react-checkbox-tree/assets/source-sans-pro-v11-latin-regular-DcFX28P_.woff2",rh=Fp`
   html {
     box-sizing: border-box;
   }
