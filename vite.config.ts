@@ -3,8 +3,8 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(() => {
   return {
+    base: '/react-checkbox-tree/',
     build: {
-      base: '/react-checkbox-tree/',
       outDir: 'build'
     },
     test: {
