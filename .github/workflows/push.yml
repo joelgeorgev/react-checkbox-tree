@@ -23,6 +23,11 @@ jobs:
       - name: Run tests
         run: npm run test:coverage
 
+      - name: Run mutation tests
+        run: npm run test:mutation
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
+
       - name: Prepare coverage report
         uses: coverallsapp/github-action@v2
         with:
