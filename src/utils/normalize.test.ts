@@ -1,4 +1,4 @@
-import { normalize } from './normalize'
+import { normalize } from './normalize.ts'
 
 type Tree = Parameters<typeof normalize>[0]
 type Nodes = ReturnType<typeof normalize>

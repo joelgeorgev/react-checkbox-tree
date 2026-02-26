@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Intro } from '.'
+import { Intro } from './Intro.tsx'
 
 const renderIntro = () => render(<Intro />)
 

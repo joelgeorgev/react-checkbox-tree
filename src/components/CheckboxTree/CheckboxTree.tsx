@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import { Checkbox } from '..'
-import { loadTree } from '../../data'
-import { normalize, getNewState } from '../../utils'
+import { Checkbox } from '../Checkbox/Checkbox.tsx'
+import { loadTree } from '../../data/loadTree.ts'
+import { normalize } from '../../utils/normalize.ts'
+import { getNewState } from '../../utils/getNewState.ts'
 
 type Nodes = ReturnType<typeof normalize>
 

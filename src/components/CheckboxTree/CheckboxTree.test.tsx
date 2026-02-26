@@ -1,14 +1,16 @@
 import { MockedFunction } from 'vitest'
 import { render, act } from '@testing-library/react'
 
-import { CheckboxTree } from '.'
-import { Checkbox } from '..'
-import { loadTree } from '../../data'
-import { normalize, getNewState } from '../../utils'
+import { CheckboxTree } from './CheckboxTree.tsx'
+import { Checkbox } from '../Checkbox/Checkbox.tsx'
+import { loadTree } from '../../data/loadTree.ts'
+import { normalize } from '../../utils/normalize.ts'
+import { getNewState } from '../../utils/getNewState.ts'
 
-vi.mock('..')
-vi.mock('../../data')
-vi.mock('../../utils')
+vi.mock('../Checkbox/Checkbox.tsx')
+vi.mock('../../data/loadTree.ts')
+vi.mock('../../utils/normalize.ts')
+vi.mock('../../utils/getNewState.ts')
 
 const mockCheckbox = Checkbox as MockedFunction<typeof Checkbox>
 const mockLoadTree = loadTree as MockedFunction<typeof loadTree>

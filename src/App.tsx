@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
-import { Intro, CheckboxTree } from './components'
+import { Intro } from './components/Intro/Intro.tsx'
+import { CheckboxTree } from './components/CheckboxTree/CheckboxTree.tsx'
 
 import github from './assets/github.svg'
 

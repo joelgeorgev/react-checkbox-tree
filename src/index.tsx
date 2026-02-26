@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createGlobalStyle } from 'styled-components'
 
-import { App } from './App'
+import { App } from './App.tsx'
 
 import woff2 from './fonts/source-sans-pro-v11-latin-regular.woff2'
 
