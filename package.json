@@ -4,8 +4,7 @@
   "description": "A react app showcasing a simple checkbox tree component.",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "styled-components": "^5.3.5"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
@@ -16,7 +15,6 @@
     "@types/node": "^25.3.2",
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
     "gh-pages": "^5.0.0",

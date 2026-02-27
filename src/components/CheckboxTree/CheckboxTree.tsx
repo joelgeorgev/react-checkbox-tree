@@ -1,17 +1,13 @@
 import { useState, useEffect } from 'react'
-import styled from 'styled-components'
 
 import { Checkbox } from '../Checkbox/Checkbox.tsx'
 import { loadTree } from '../../data/loadTree.ts'
 import { normalize } from '../../utils/normalize.ts'
 import { getNewState } from '../../utils/getNewState.ts'
 
-type Nodes = ReturnType<typeof normalize>
+import './CheckboxTree.css'
 
-const List = styled.ul`
-  list-style-type: none;
-  padding-left: 0;
-`
+type Nodes = ReturnType<typeof normalize>
 
 export const CheckboxTree = () => {
   const [nodes, setNodes] = useState<Nodes | null>(null)
@@ -27,9 +23,9 @@ export const CheckboxTree = () => {
 
   return (
     nodes && (
-      <List>
+      <ul className='checkbox-tree'>
         <Checkbox id={'0'} nodes={nodes} onToggle={toggleCheckbox} />
-      </List>
+      </ul>
     )
   )
 }

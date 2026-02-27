@@ -1,16 +1,8 @@
 import { Fragment } from 'react'
-import styled from 'styled-components'
 
 import type { Nodes } from '../../types'
 
-const List = styled.ul`
-  list-style-type: none;
-`
-
-const StyledCheckbox = styled.input`
-  margin-right: 0.5rem;
-  cursor: pointer;
-`
+import './Checkbox.css'
 
 interface Props {
   id: string
@@ -26,10 +18,11 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
     <Fragment key={id}>
       {text && (
         <li>
-          <label>
-            <StyledCheckbox
+          <label className='checkbox'>
+            <input
               type='checkbox'
               checked={checked}
+              className='input'
               onChange={() => onToggle(id)}
             />
             {text}
@@ -38,7 +31,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
       )}
       {childIds.length > 0 && (
         <li>
-          <List>
+          <ul>
             {childIds.map((childId) => (
               <Checkbox
                 key={childId}
@@ -47,7 +40,7 @@ export const Checkbox = ({ id, nodes, onToggle }: Props) => {
                 onToggle={onToggle}
               />
             ))}
-          </List>
+          </ul>
         </li>
       )}
     </Fragment>

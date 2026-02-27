@@ -1,0 +1,31 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  overscroll-behavior-y: none;
+}
+
+@font-face {
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src:
+    local('Source Sans Pro Regular'),
+    local('SourceSansPro-Regular'),
+    url('./fonts/source-sans-pro-v11-latin-regular.woff2') format('woff2');
+}
+
+ul {
+  list-style-type: none;
+}

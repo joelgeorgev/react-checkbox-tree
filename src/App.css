@@ -1,0 +1,20 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 64rem;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+}
+
+.footer {
+  align-self: center;
+  margin: 2rem;
+}
