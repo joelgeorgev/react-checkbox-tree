@@ -20,3 +20,10 @@ yarn-error.log*
 # stryker temp files
 .stryker-tmp
 reports/mutation
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
