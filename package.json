@@ -39,6 +39,7 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage",
     "test:mutation": "stryker run",
+    "pretest:e2e": "playwright install --with-deps",
     "test:e2e": "playwright test",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
