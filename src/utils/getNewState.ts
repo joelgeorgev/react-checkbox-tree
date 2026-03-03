@@ -16,11 +16,9 @@ const toggleNodeAndChildren = (
 
   newNodes[id] = toggleNode(currentNode, checked)
 
-  if (childIds.length) {
-    childIds.forEach((childId) => {
-      newNodes = toggleNodeAndChildren(newNodes, childId, checked)
-    })
-  }
+  childIds.forEach((childId) => {
+    newNodes = toggleNodeAndChildren(newNodes, childId, checked)
+  })
 
   return newNodes
 }
@@ -48,9 +46,7 @@ const toggleParent = (nodes: Nodes, id: string): Nodes => {
   const parentNode = newNodes[parentId]
   const shouldToggleParent = areChildrenChecked(newNodes, parentId)
 
-  if (parentNode.checked !== shouldToggleParent) {
-    newNodes[parentId] = toggleNode(parentNode, shouldToggleParent)
-  }
+  newNodes[parentId] = toggleNode(parentNode, shouldToggleParent)
 
   return toggleParent(newNodes, parentId)
 }

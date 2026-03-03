@@ -23,11 +23,9 @@ export const normalize = (tree: Tree): Nodes => {
       normalizedTree[parentId].childIds.push(id)
     }
 
-    if (node[RECURSION_KEY] && node[RECURSION_KEY].length) {
-      node[RECURSION_KEY].forEach((childNode) => {
-        transform(childNode, id)
-      })
-    }
+    node[RECURSION_KEY].forEach((childNode) => {
+      transform(childNode, id)
+    })
   }
 
   transform(tree)
