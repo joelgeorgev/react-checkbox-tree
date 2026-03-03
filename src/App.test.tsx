@@ -2,8 +2,6 @@ import { render, screen } from '@testing-library/react'
 
 import { App } from './App.tsx'
 
-vi.mock('./components')
-
 const renderApp = () => render(<App />)
 
 describe('App', () => {

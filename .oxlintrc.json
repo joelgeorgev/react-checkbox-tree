@@ -20,6 +20,12 @@
     "browser": true
   },
   "rules": {
-    "import/extensions": ["error", "ignorePackages"]
+    "import/extensions": ["error", "ignorePackages"],
+    "jest/expect-expect": [
+      "error",
+      {
+        "assertFunctionNames": ["expect", "assert*"]
+      }
+    ]
   }
 }
