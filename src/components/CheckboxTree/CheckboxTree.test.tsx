@@ -14,23 +14,30 @@ const toggleCheckbox = (text: string) => {
   return user.click(findCheckbox(text))
 }
 
-const assertCheckbox = (text: string, checked: boolean): void => {
+const assertCheckboxChecked = (text: string): void => {
   const checkbox = findCheckbox(text)
 
-  expect(checkbox).toBeDefined()
-  expect(checkbox.checked).toEqual(checked)
+  expect(checkbox).toBeInTheDocument()
+  expect(checkbox).toBeChecked()
+}
+
+const assertCheckboxUnchecked = (text: string): void => {
+  const checkbox = findCheckbox(text)
+
+  expect(checkbox).toBeInTheDocument()
+  expect(checkbox).not.toBeChecked()
 }
 
 describe('CheckboxTree', () => {
   test('toggles Checkboxes', async () => {
     renderCheckboxTree()
 
-    assertCheckbox('Select all', false)
-    assertCheckbox('Name', false)
+    assertCheckboxUnchecked('Select all')
+    assertCheckboxUnchecked('Name')
 
     await toggleCheckbox('Select all')
 
-    assertCheckbox('Select all', true)
-    assertCheckbox('Name', true)
+    assertCheckboxChecked('Select all')
+    assertCheckboxChecked('Name')
   })
 })

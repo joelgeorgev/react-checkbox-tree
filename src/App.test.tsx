@@ -12,7 +12,7 @@ describe('App', () => {
       name: 'Go to GitHub repository page'
     })
 
-    expect(link).toBeDefined()
+    expect(link).toBeInTheDocument()
     expect(link.href).toEqual(
       'https://github.com/joelgeorgev/react-checkbox-tree'
     )

@@ -18,7 +18,7 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "isolatedModules": true,
-    "types": ["vite/client", "vitest/globals"]
+    "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
   },
   "include": ["src"]
 }

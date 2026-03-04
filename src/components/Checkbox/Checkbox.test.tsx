@@ -12,11 +12,9 @@ type OnToggle = Props['onToggle']
 
 const createOnToggle = (): MockedFunction<OnToggle> => vi.fn()
 
-const defaultChecked = false
-
 const createNode = (overrides?: Partial<Node>): Node => ({
   text: '',
-  checked: defaultChecked,
+  checked: false,
   childIds: [],
   parentId: undefined,
   ...overrides
@@ -59,8 +57,8 @@ const toggleCheckbox = (text: string) => {
 const assertCheckbox = (text: string): void => {
   const checkbox = findCheckbox(text)
 
-  expect(checkbox).toBeDefined()
-  expect(checkbox.checked).toEqual(defaultChecked)
+  expect(checkbox).toBeInTheDocument()
+  expect(checkbox).not.toBeChecked()
 }
 
 describe('Checkbox', () => {

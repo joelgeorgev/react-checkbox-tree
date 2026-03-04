@@ -10,6 +10,7 @@ export default defineConfig(() => {
     },
     test: {
       exclude: [...configDefaults.exclude, 'e2e'],
+      setupFiles: ['./vitest-setup.ts'],
       globals: true,
       environment: 'jsdom',
       clearMocks: true,

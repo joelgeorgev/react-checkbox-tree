@@ -10,7 +10,7 @@ describe('Intro', () => {
 
     expect(
       screen.getByRole('heading', { name: 'React Checkbox Tree' })
-    ).toBeDefined()
+    ).toBeInTheDocument()
   })
 
   test('renders a link to create-react-app GitHub repository', () => {
@@ -20,7 +20,7 @@ describe('Intro', () => {
       name: 'create-react-app'
     })
 
-    expect(link).toBeDefined()
+    expect(link).toBeInTheDocument()
     expect(link.href).toEqual(
       'https://github.com/facebookincubator/create-react-app'
     )
